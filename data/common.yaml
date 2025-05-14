@@ -1,0 +1,24 @@
+# Common variables used across templates
+editor: code
+shell: zsh
+package_manager: pnpm
+
+# Development tools
+dev_tools:
+  - git
+  - nodejs
+  - pnpm
+  - docker
+  - vscode
+
+# Personal tools (only installed on personal machines)
+personal_tools:
+  - spotify
+  - steam
+  - discord
+
+# Work tools (only installed on work machines)
+work_tools:
+  - slack
+  - teams
+  - vpn 

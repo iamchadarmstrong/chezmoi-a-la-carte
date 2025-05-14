@@ -1,0 +1,68 @@
+darwin:
+  brews:
+    - 'git'
+    - 'gh'
+    # cli styles
+    - 'lsd'
+    - 'lolcat'
+    - 'gum'
+    - 'pygments'
+    # cli tools
+    - 'atuin'
+    - 'jq'
+    - 'fzf'
+    - 'fd'
+    - 'eza'
+    - 'figlet'
+    - 'curl'
+    - 'ripgrep'
+    - 'thefuck'
+    - 'tmux'
+    - 'vim'
+    - 'wget'
+    - 'zoxide'
+    - 'fzf-tab'
+    - 'fzf-tab-completion'
+    - 'fzf-tab-completion-zsh'
+    # language
+    - 'pipx'
+    - 'go'
+    - 'rust'
+    - 'rust-analyzer'
+  casks:
+    - 'google-chrome'
+    - 'synergy'
+    - 'localsend'
+    # mac exclusive
+    - 'notunes'
+    - 'caffeine'
+    - 'dockdoor'
+linux:
+  packages:
+    # Basic dependencies
+    - 'curl'
+    - 'git'
+    - 'vim'
+    - 'nano'
+    - 'zsh'
+    - 'sudo'
+    - 'locales'
+    - 'wget'
+    - 'gpg'
+    - 'build-essential'
+    # Development tools
+    - 'nodejs'
+    - 'npm'
+    # CLI tools
+    - 'eza'
+    - 'd2'
+    # Language tools
+    - 'pipx'
+    # Shell tools
+    - 'zoxide'
+    - 'starship'
+    - 'atuin'
+    # Browser and sharing
+    - 'google-chrome-stable'
+    - 'synergy'
+    - 'localsend'

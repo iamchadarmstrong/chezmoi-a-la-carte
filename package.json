@@ -1,0 +1,13 @@
+{
+  "name": "a-la-carte",
+  "version": "1.0.0",
+  "private": true,
+  "devDependencies": {
+    "@commitlint/cli": "^18.0.0",
+    "@commitlint/config-conventional": "^18.0.0",
+    "husky": "^9.1.7"
+  },
+  "scripts": {
+    "commitlint": "commitlint --edit $GIT_PARAMS"
+  }
+}

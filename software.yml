@@ -1,0 +1,30 @@
+asciinema:
+  _bin: asciinema
+  _desc: "[Asciinema](https://asciinema.org) allows you to record and share your terminal sessions, the simple way"
+  _docs: https://asciinema.org/docs/
+  _github: https://github.com/asciinema/asciinema
+  _home: https://asciinema.org/
+  _name: asciinema
+  _short: "asciinema is a tool for recording and sharing terminal sessions.                                                                                                                                          "
+  apk: asciinema
+  apt: asciinema
+  brew: asciinema
+  pipx: asciinema
+atuin:
+  _bin: atuin
+  _desc: "It is written in Go and is open-source,  \navailable on GitHub at https://github.com/ellie/atuin.                                                                                                                                                    "
+  _github: https://github.com/ellie/atuin
+  _name: Atuin
+  _preload: true
+  _short: "Atuin is a command-line tool for managing command history.                                                                                                                                              "
+  brew: atuin
+  cargo: atuin
+gum:
+  _bin: gum
+  _desc: "[Gum](https://github.com/charmbracelet/gum) A tool for creating prompts, formatted text, and more"
+  _docs: https://github.com/charmbracelet/gum#installation
+  _github: https://github.com/charmbracelet/gum
+  _home: https://github.com/charmbracelet/gum
+  _name: Gum
+  brew: gum
+  go: github.com/charmbracelet/gum@

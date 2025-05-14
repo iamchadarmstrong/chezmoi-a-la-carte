@@ -1,0 +1,30 @@
+services:
+  a-la-carte:
+    build:
+      context: .
+      args:
+        USER_NAME: vscode
+        USERNAME: vscode
+        USER_UID: ${HOST_UID:-1000}
+        USER_GID: ${HOST_GID:-1000}
+    volumes:
+      - ${localWorkspaceFolder:-../}:/workspace:cached
+      - container_user_data:/home/vscode
+      # Mount .env file for environment variables
+      - ${localWorkspaceFolder:-../}/.env:/workspace/.env:cached
+    environment:
+      - HOST_UID=${HOST_UID:-1000}
+      - HOST_GID=${HOST_GID:-1000}
+      - localWorkspaceFolder=${localWorkspaceFolder}
+      # Terminal configuration
+      - TERM=xterm-256color
+      - COLORTERM=truecolor
+      - FORCE_COLOR=1
+    init: true
+    privileged: true
+    command: sleep infinity
+    tty: true
+    stdin_open: true
+
+volumes:
+  container_user_data:

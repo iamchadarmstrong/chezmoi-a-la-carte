@@ -1,0 +1,55 @@
+# OS specific files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor specific files
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+.idea/
+*.swp
+*.swo
+
+# Chezmoi specific
+.chezmoicorpus/
+
+# Log files
+*.log
+
+# Sensitive data
+*.pem
+*.key
+.env
+.env.local
+.env.*.local
+
+# Node.js
+node_modules/
+.npm
+.pnpm-store/
+
+# Python
+__pycache__/
+*.py[cod]
+.Python
+env/
+venv/
+
+# Go build/test artifacts
+*.exe
+*.test
+*.out
+coverage.out
+
+# Zsh
+.zcompdump*
+.zsh_history
+.zsh_sessions/
+
+# Misc
+*.bak2
+*_report.md
+*_analysis.md
+scripts
+bak2

@@ -1,0 +1,1370 @@
+act:
+  _bin: act
+  _desc: '[Act](https://github.com/nektos/act) Run GitHub actions locally'
+  _docs: https://github.com/nektos/act#example-commands
+  _github: https://github.com/nektos/act
+  _home: https://github.com/nektos/act
+  _name: Act
+  _short: 'act is a tool that allows you to run GitHub Actions locally.                                                                                                                                              '
+  brew: act
+  choco: act-cli
+  go: github.com/nektos/act@
+  nix: nixpkgs.act
+  port: act
+  scoop: act
+  yay: act
+asciinema:
+  _bin: asciinema
+  _desc: '[Asciinema](https://asciinema.org) allows you to record and share your terminal sessions, the simple way'
+  _docs: https://asciinema.org/docs/
+  _github: https://github.com/asciinema/asciinema
+  _home: https://asciinema.org/
+  _name: asciinema
+  _short: 'asciinema is a tool for recording and sharing terminal sessions.                                                                                                                                          '
+  apk: asciinema
+  apt: asciinema
+  brew: asciinema
+  dnf: asciinema
+  pacman: asciinema
+  pipx: asciinema
+atuin:
+  _bin: atuin
+  _desc: "Atuin is a tool for managing AWS infrastructure using a simple command-line interface. It allows users to create, update, and delete AWS resources like EC2 instances, security groups, and S3 buckets    \nusing a declarative configuration file. Atuin aims to simplify AWS infrastructure management by providing a user-friendly interface and automating common tasks. It is written in Go and is open-source,  \navailable on GitHub at https://github.com/ellie/atuin.                                                                                                                                                    "
+  _github: https://github.com/ellie/atuin
+  _name: Atuin
+  _preload: true
+  _short: 'Atuin is a command-line tool for managing macOS windows.                                                                                                                                              '
+  brew: atuin
+  cargo: atuin
+  pacman: atuin
+  pkg-termux: atuin
+  port: atuin
+gum:
+  _bin: gum
+  _desc: '[Gum](https://github.com/charmbracelet/gum) A tool for creating prompts, formatted text, and more'
+  _docs: https://github.com/charmbracelet/gum#installation
+  _github: https://github.com/charmbracelet/gum
+  _home: https://github.com/charmbracelet/gum
+  _name: Gum
+  winget: charmbracelet.gum
+  scoop: charm-gum
+  brew: gum
+  choco: charm-gum
+  go: github.com/charmbracelet/gum@
+  nix: nixpkgs.gum
+  port: gum
+  flox: gum
+  yay: gum
+awscli:
+  _bin: aws
+  _desc: The [AWS CLI](https://aws.amazon.com/cli/) is a unified tool to manage your AWS services. With just one tool to download and configure, you can control multiple AWS services from the command line and automate them through scripts.
+  _docs: https://docs.aws.amazon.com/cli/index.html
+  _github: https://github.com/aws/aws-cli
+  _home: https://aws.amazon.com/
+  _name: AWS CLI
+  _short: 'AWS CLI is a unified tool to manage AWS services through the command line.                                                                                                                                '
+  binary:darwin: https://awscli.amazonaws.com/AWSCLIV2.pkg
+  binary:linux: https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip
+  binary:windows: https://awscli.amazonaws.com/AWSCLIV2.msi
+  brew: awscli@2
+  choco: awscli
+bat:
+  _bin: bat
+  _desc: '[bat](https://github.com/sharkdp/bat) is a cat(1) clone with syntax highlighting and Git integration.'
+  _github: https://github.com/sharkdp/bat
+  _name: bat
+  _preload: true
+  _short: 'bat is a cat(1) clone with syntax highlighting and Git integration.                                                                                                                                       '
+  apk: bat
+  apt: bat
+  brew: bat
+  cargo: bat
+  choco: bat
+  pacman: bat
+  pkg: bat
+  port: bat
+  scoop: bat
+  zypper: bat
+bat-extras:
+  _bin: batman
+  _desc: "bat-extras is a collection of additional scripts and utilities that extend the functionality of the bat command-line tool. These extras include features like syntax highlighting for more file types,    \nintegration with version control systems like Git, and additional customization options. It enhances the user experience when viewing and working with files in the terminal using bat. You can find more \ndetails and installation instructions on the GitHub repository: bat-extras.                                                                                                                               "
+  _github: https://github.com/eth-p/bat-extras
+  _name: Bat Extras
+  _preload: true
+  _short: 'bat-extras is a collection of additional scripts and functions for the bat command-line tool, enhancing its functionality on Unix-like systems.                                                           '
+  brew: bat-extras
+  emerge: sys-apps/bat-extras
+  pacman: bat-extras
+bitwarden:
+  _app: Bitwarden.app
+  _bin: bitwarden
+  _desc: The desktop vault (Windows, macOS, & Linux)
+  _github: https://github.com/bitwarden/desktop
+  _name: BitWarden
+  _env:
+    BITWARDEN_APPDATA:
+      cask: '$HOME/Library/Application Support/Bitwarden'
+  _short: 'bitwarden/desktop is a secure and open-source password manager for desktop platforms.                                                                                                                     '
+  cask: bitwarden
+  choco: bitwarden
+  flatpak: com.bitwarden.desktop
+  github: github.com/bitwarden/desktop
+  mas: 1352778147
+  snap: bitwarden
+  yay: bitwarden-git
+bitwarden-cli:
+  _bin: bw
+  _desc: '[Bitwarden CLI](https://github.com/bitwarden/cli) (i.e. bw) is a free and open-source official CLI for the [Bitwarden](https://bitwarden.com/) password manager. bw is available on Linux, macOS, and Microsoft Windows.'
+  _docs: https://bitwarden.com/help/
+  _github: https://github.com/bitwarden/clients
+  _home: https://bitwarden.com/
+  _name: Bitwarden CLI
+  _short: 'Bitwarden Clients: Open-source password manager with clients for various platforms including web, desktop, and mobile.                                                                                    '
+  brew: bitwarden-cli
+  choco: bitwarden-cli
+  npm: '@bitwarden/cli'
+  scoop: bitwarden-cli
+  snap: bw
+blackhole:
+  _bin: false
+  _desc: Audio loopback device for macOS (supports sound passthrough to screen recording software on macOS)
+  _docs: https://github.com/ExistentialAudio/BlackHole#user-guides
+  _github: https://github.com/ExistentialAudio/BlackHole
+  _home: https://github.com/ExistentialAudio/BlackHole
+  _name: BlackHole
+  _short: 'BlackHole is a modern macOS virtual audio driver that allows applications to pass audio to other applications with zero additional latency.                                                               '
+  _when:cask: '! test -d /Library/Audio/Plug-Ins/HAL/BlackHole16ch.driver && ! test -d ~/Library/Audio/Plug-Ins/HAL/BlackHole16ch.driver'
+  cask: blackhole-16ch
+ccat:
+  _bin: ccat
+  _deprecated: bat can be used instead and has more features
+  _desc: "ccat is a tool available on GitHub at https://github.com/owenthereal/ccat that enhances the traditional cat command in Unix-like systems. It adds syntax highlighting for various file types when         \ndisplaying their contents in the terminal. This can make it easier to read and understand code or configuration files. It supports a wide range of languages and file formats, making it a useful tool for\ndevelopers and system administrators working with text files.                                                                                                                                             "
+  _github: https://github.com/owenthereal/ccat
+  _name: ccat
+  _short: 'ccat is a colorizing cat command that highlights syntax in terminal output.                                                                                                                               '
+  brew: ccat
+  go: github.com/owenthereal/ccat@latest
+  pacman: ccat
+charm:
+  _bin: charm
+  _desc: The Charm Tool and Library
+  _docs: https://github.com/charmbracelet/charm
+  _github: https://github.com/charmbracelet/charm
+  _home: https://charm.sh
+  _name: Charm
+  _short: 'Charm is a collection of modern CLI tools for building interactive terminal applications in Go.                                                                                                           '
+  brew: charmbracelet/tap/charm
+  go: github.com/charmbracelet/charm@main
+  nix-env: nixpkgs.charm
+  pacman: charm
+chezmoi:
+  _bin: chezmoi
+  _desc: Manage your dotfiles across multiple diverse machines, securely.
+  _docs: https://www.chezmoi.io/user-guide/command-overview/
+  _github: https://github.com/twpayne/chezmoi
+  _home: https://www.chezmoi.io/
+  _name: Chezmoi
+  _preload: true
+  _short: 'Chezmoi is a tool that helps manage dotfiles across multiple machines using a version control system like Git.                                                                                            '
+  apk: chezmoi
+  brew: chezmoi
+  choco: chezmoi
+  nix: chezmoi
+  pacman: chezmoi
+  pkg: chezmoi
+  snap: chezmoi --classic
+  xbps: chezmoi
+  zypper: chezmoi
+cmake:
+  _bin: cmake
+  _desc: CMake is an open-source, cross-platform family of tools designed to build, test and package software.
+  _docs: https://cmake.org/documentation/
+  _github: https://github.com/Kitware/CMake
+  _home: https://cmake.org/
+  _name: Chezmoi
+  _preload: true
+  _short: 'CMake is an open-source cross-platform build system designed to build, test, and package software.                                                                                                        '
+  brew: cmake
+  choco: cmake
+  snap: cmake --classic
+commitizen:
+  _bin: cz
+  _desc: Commitizen is a tool designed for teams. Its main purpose is to define a standard way of committing rules and communicating it
+  _docs: https://commitizen-tools.github.io/commitizen/
+  _github: https://github.com/commitizen/cz-cli
+  _home: https://commitizen-tools.github.io/commitizen/
+  _name: commitizen
+  _short: 'cz-cli is a command-line tool that helps in creating standardized commit messages following conventional commit message guidelines.                                                                       '
+  npm: commitizen
+commitlint:
+  _bin: commitlint
+  _desc: Lint commit messages
+  _docs: https://commitlint.js.org/#/?id=documentation
+  _github: https://github.com/conventional-changelog/commitlint
+  _home: https://commitlint.js.org
+  _name: commitlint
+  _short: 'commitlint is a tool that enforces commit message conventions to ensure consistent and structured commit messages in a project.                                                                           '
+  npm: '@commitlint/cli'
+coreutils:
+  _bin: chown
+  _bin:darwin: gchown
+  _github: false
+  apt: coreutils
+  brew: coreutils
+  dnf: coreutils
+  pacman: coreutils
+curl:
+  _bin: curl
+  _desc: cURL is a computer software project providing a library (libcurl) and command-line tool (curl) for transferring data using various network protocols.
+  _docs: https://curl.se/docs/
+  _github: https://github.com/curl/curl
+  _home: https://curl.se/
+  _name: cURL
+  _preload: true
+  _short: 'curl is a command-line tool and library for transferring data with URLs.                                                                                                                                  '
+  apk: curl
+  apt: curl
+  brew: curl
+  choco: curl
+  dnf: curl
+  pacman: curl
+  pkg: curl
+  scoop: curl
+  xbps: curl
+  zypper: curl
+curlie:
+  _bin: curlie
+  _desc: Curlie is a frontend to curl that adds the ease of use of httpie, without compromising on features and performance.
+  _docs: https://curlie.io/
+  _github: https://github.com/rs/curlie
+  _home: https://curlie.io/
+  _name: Curlie
+  _short: 'curlie is a modern command-line interface for curl.                                                                                                                                                       '
+  brew: curlie
+  go: github.com/rs/curlie@latest
+  pkg: curlie
+  port: curlie
+  scoop: curlie
+dive:
+  _bin: dive
+  _desc: '[dive](https://github.com/wagoodman/dive) is a tool for exploring a docker image, layer contents, and discovering ways to shrink the size of the Docker/OCI image.'
+  _description: A tool for exploring each layer in a docker image
+  _github: https://github.com/wagoodman/dive
+  _home: https://github.com/wagoodman/dive
+  _name: dive
+  _short: 'Dive is a tool for exploring and analyzing Docker images interactively.                                                                                                                                   '
+  brew: dive
+  github: github.com/wagoodman/dive
+  go: github.com/wagoodman/dive@latest
+  yay: dive
+docker:
+  _bin: docker
+  _deps:
+    - docker-images
+  _desc: "The GitHub repository at https://github.com/microsoft/docker is maintained by Microsoft and is related to Docker, a popular platform for developing, shipping, and running applications using             \ncontainerization technology. The repository likely contains code, documentation, and resources related to Microsoft's involvement with Docker, such as tools, extensions, or integrations. It could also  \ninclude projects aimed at improving Docker's functionality on Microsoft platforms like Windows or Azure. For specific details, exploring the repository directly would provide more insights.             "
+  _github: https://github.com/microsoft/docker
+  _name: Docker CLI
+  _preload: false
+  _short: 'microsoft/docker is a GitHub repository maintained by Microsoft for Docker-related projects.                                                                                                              '
+  apt:
+    - containerd.io
+    - docker-ce
+    - docker-ce-cli
+    - docker-compose-plugin
+  dnf:
+    - containerd.io
+    - docker-ce
+    - docker-ce-cli
+    - docker-compose-plugin
+  pacman:
+    - containerd.io
+    - docker-ce
+    - docker-ce-cli
+    - docker-compose-plugin
+  script:darwin: echo "Docker CLI installed by Docker Desktop on macOS"
+  zypper:
+    - containerd.io
+    - docker-ce
+    - docker-ce-cli
+    - docker-compose-plugin
+docker-credential-helper:
+  _bin:darwin: docker-credential-osxkeychain
+  _bin:linux: docker-credential-secretservice
+  _bin:windows: docker-credential-wincred
+  _desc: Programs to keep Docker login credentials safe by storing in platform keystores
+  _docs: https://github.com/docker/docker-credential-helpers
+  _github: https://github.com/docker/docker-credential-helpers
+  _home: https://github.com/docker/docker-credential-helpers
+  _name: Docker Credential Helper
+  _preload: true
+  _short: 'docker-credential-helpers is a set of utilities that help Docker authenticate with various container registries securely.                                                                                 '
+  brew: docker-credential-helper
+docker-desktop:
+  _app: Docker.app
+  _desc: '[Docker](https://www.docker.com/) is a set of platform-as-a-service products that use OS-level virtualization to deliver software in packages called containers. Containers are isolated from one another and bundle their own software, libraries and configuration files; they can communicate with each other through well-defined channels. [Docker Desktop](https://www.docker.com/products/docker-desktop/) adds a sleek UI for Docker and makes it easier to manage Docker on macOS and Windows.'
+  _docs: https://docs.docker.com/
+  _github: https://github.com/docker/compose
+  _home: https://www.docker.com/
+  _name: Docker Desktop
+  _env:
+    DOCKER_DESKTOP_APPDATA:
+      cask: '$HOME/Library/Application Support/Docker Desktop'
+  _short: 'Docker Compose is a tool for defining and running multi-container Docker applications.                                                                                                                    '
+  apt: https://desktop.docker.com/linux/main/amd64/docker-desktop-4.16.2-amd64.deb
+  cask: docker
+  choco: docker-desktop
+  dnf: https://desktop.docker.com/linux/main/amd64/docker-desktop-4.16.2-x86_64.rpm
+  pacman: https://desktop.docker.com/linux/main/amd64/docker-desktop-4.16.2-x86_64.pkg.tar.zst
+docker-images:
+  _bin: docker-images
+  _desc: This entry is used to trigger a post-installation docker image pre-load. See the `docker-images` entry in `.chezmoidata.yaml`.
+  _github: false
+  _preload: true
+  script: echo "Enabling docker-images pre-load"
+docker-langserver:
+  _bin: docker-langserver
+  _desc: A Docker language server
+  _docs: https://github.com/rcjsuen/dockerfile-language-server-nodejs
+  _github: https://github.com/rcjsuen/dockerfile-language-server-nodejs
+  _home: https://github.com/rcjsuen/dockerfile-language-server-nodejs
+  _name: Docker Language Server
+  _preload: true
+  _short: 'dockerfile-language-server-nodejs is a language server for Dockerfiles, written in Node.js.                                                                                                               '
+  npm: dockerfile-language-server-nodejs
+docker-plugins:
+  _desc: This entry is used to trigger a post-installation Docker plugin installation. See `docker-plugins` entry in `.chezmoidata.yaml`.
+  _github: false
+  _preload: true
+docker-pushrm:
+  _bin: docker-pushrm
+  _desc: "The repository at https://github.com/christian-korneck/docker-pushrm appears to be a tool or script related to Docker. The name \"docker-pushrm\" suggests it might be related to pushing Docker images to a\nregistry. To get more details, you can check the repository's README file or explore the code to understand its functionality, usage, and any specific requirements or dependencies it might have.        "
+  _github: https://github.com/christian-korneck/docker-pushrm
+  _name: Docker PushRM
+  _preload: true
+  _short: 'docker-pushrm is a tool that simplifies pushing Docker images to AWS Elastic Container Registry (ECR) with reduced manual steps.                                                                          '
+  script: |
+    #!/usr/bin/env bash
+    if [ ! -f "${XDG_CONFIG_HOME:-$HOME/.config}/docker/cli-plugins/docker-pushrm" ]; then
+      gum log -sl info 'Acquiring release information for Docker push-rm'
+      RELEASE_TAG="$(curl -sSL https://api.github.com/repos/christian-korneck/docker-pushrm/releases/latest | jq -r '.tag_name')"
+      mkdir -p "${XDG_CONFIG_HOME:-$HOME/.config}/docker/cli-plugins"
+      gum log -sl info 'Downloading Docker push-rm' && curl https://github.com/christian-korneck/docker-pushrm/releases/download/$RELEASE_TAG/docker-pushrm_darwin_amd64 -o "${XDG_CONFIG_HOME:-$HOME/.config}/docker/cli-plugins/docker-pushrm"
+      chmod +x "${XDG_CONFIG_HOME:-$HOME/.config}/docker/cli-plugins/docker-pushrm"
+      gum log -sl info 'Added Docker push-rm'
+    else
+      gum log -sl info 'Docker push-rm already added'
+    fi
+docker-slim:
+  _bin: slim
+  _desc: "[DockerSlim](https://dockersl.im/) will optimize and secure your containers by understanding your application and what it needs using various analysis techniques. It will throw away what you don't need, reducing the attack surface of your container. What if you need some of those extra things to debug your container? You can use dedicated debugging side-car containers for that."
+  _docs: https://github.com/docker-slim/docker-slim#basic-usage-info
+  _github: https://github.com/docker-slim/docker-slim
+  _home: https://dockersl.im/
+  _name: Docker Slim
+  _short: 'docker-slim is a tool to create smaller and more secure Docker images by analyzing and optimizing them.                                                                                                   '
+  brew: docker-slim
+  dnf:fedora: golang-github-docker-slim
+  github: github.com/docker-slim/docker-slim
+  yay: docker-slim
+dockfmt:
+  _bin: dockfmt
+  _desc: "Dockfmt is a tool created by jessfraz that formats Dockerfiles in a consistent and easy-to-read manner. It helps maintain a standardized structure in Dockerfiles, making them more readable and          \nmaintainable. By using Dockfmt, you can ensure that your Dockerfiles follow best practices and adhere to a specific style guide. It can be integrated into your workflow to automatically format          \nDockerfiles, saving time and reducing errors related to inconsistent formatting.                                                                                                                          "
+  _github: https://github.com/jessfraz/dockfmt
+  _name: dockfmt
+  _short: 'dockfmt is a tool for formatting Dockerfiles.                                                                                                                                                             '
+  go: github.com/jessfraz/dockfmt@latest
+dockle:
+  _bin: dockle
+  _desc: Container Image Linter for Security, Helping build the Best-Practice Docker Image, Easy to start
+  _github: https://github.com/goodwithtech/dockle
+  _name: dockle
+  _short: 'Dockle is a security and compliance scanner for Docker containers.                                                                                                                                        '
+  brew: goodwithtech/r/dockle
+  github: github.com/goodwithtech/dockle
+  yay: dockle-bin
+dockly:
+  _bin: dockly
+  _desc: "Dockly is a terminal-based dashboard for managing Docker containers and services. It provides a user-friendly interface to monitor and interact with Docker containers, images, networks, and volumes.    \nWith Dockly, users can view container logs, inspect container details, start/stop containers, and more, all from the command line. It offers a convenient way to manage Docker resources without needing  \nto switch to a separate GUI application. Dockly is written in Node.js and supports various features to streamline Docker container management in a terminal environment.                                  "
+  _github: https://github.com/lirantal/dockly
+  _name: Dockly
+  _short: 'Dockly is a terminal-based dashboard for managing Docker containers.                                                                                                                                      '
+  npm: dockly
+doitlive:
+  _bin: doitlive
+  _desc: "DoItLive is a tool for live presentations in the terminal. It allows you to record and replay shell commands with annotations, making it perfect for demonstrations or tutorials. You can define a        \nsequence of commands, add comments, and execute them in a controlled manner. It supports syntax highlighting, timing control, and customization options to enhance the presentation experience. Overall,  \nit's a handy tool for showcasing command-line workflows in a structured and engaging way.                                                                                                                 "
+  _github: https://github.com/sloria/doitlive
+  _name: Do It Live!
+  _short: 'doitlive is a tool for live presentations in the terminal, allowing you to script and replay command line sessions with ease.                                                                             '
+  brew: doitlive
+  pipx: doitlive
+empty-trash:
+  _bin: empty-trash
+  _desc: CLI to empty trash on macOS, Windows, and Linux
+  _docs: https://github.com/sindresorhus/empty-trash-cli
+  _github: https://github.com/sindresorhus/empty-trash-cli
+  _home: https://github.com/sindresorhus/empty-trash-cli
+  _name: Empty Trash CLI
+  _short: 'empty-trash-cli is a command-line tool for emptying the trash on macOS.                                                                                                                                   '
+  npm: empty-trash-cli
+envchain:
+  _bin: envchain
+  _deps:
+    - _envchain:deps
+  _desc: Environment variables meet macOS Keychain and gnome-keyring
+  _docs: https://github.com/sorah/envchain#usage
+  _github: https://github.com/sorah/envchain
+  _home: https://github.com/sorah/envchain
+  _name: envchain
+  _preload: true
+  _short: 'envchain is a tool that securely stores and manages environment variables for command-line applications.                                                                                                  '
+  brew: envchain
+  github: github.com/sorah/envchain
+eslint:
+  _bin: eslint
+  _desc: '[ESLint](https://eslint.org/) allows you to find and fix problems in your JavaScript code'
+  _docs: https://eslint.org/docs
+  _github: https://github.com/eslint/eslint
+  _home: https://eslint.org/
+  _name: ESLint
+  _preload: true
+  _short: 'ESLint is a popular JavaScript linting tool that helps developers maintain code quality and adhere to coding standards.                                                                                   '
+  brew: eslint
+  npm: eslint
+eza:
+  _bin: eza
+  _desc: A modern replacement for ls. Active fork of exa.
+  _docs: https://eza.rocks/
+  _github: https://github.com/eza-community/eza
+  _home: https://eza.rocks/
+  _preload: true
+  _name: Eza
+  brew: eza
+  cargo: eza
+  emerge: sys-apps/eza
+  nix-env: eza
+  pacman: eza
+  port: eza
+  scoop: eza
+  winget: eza-community.eza
+  xbps-install: eza
+fd:
+  _bin: fd
+  _bin:apt: fdfind
+  _desc: "[fd](https://github.com/sharkdp/fd) is a program that can search for files on your filesystem. It is a simple, fast, and user-friendly alternative to find. While it does not aim to support all of find's powerful functionality, it provides sensible (opinionated) defaults for a majority of use cases."
+  _github: https://github.com/sharkdp/fd
+  _name: fd
+  _preload: true
+  _short: 'fd is a simple, fast and user-friendly alternative to find command, written in Rust.                                                                                                                      '
+  apk: fd
+  apt: fd-find
+  brew: fd
+  cargo: fd-find
+  choco: fd
+  github: github.com/sharkdp/fd
+  pacman: fd
+  pkg: fd
+  scoop: fd
+figlet:
+  _bin: figlet
+  _desc: "Figlet is a program that generates text banners in various typefaces, known as \"figlet fonts.\" It allows users to create ASCII art text using different font styles. The GitHub repository you mentioned, \nhttps://github.com/cmatsuoka/figlet, likely contains the source code, documentation, and possibly additional resources related to the Figlet program. Users can download, install, and customize Figlet to\ncreate visually appealing text-based designs for various purposes like banners, signs, or decorative text in terminal applications.                                                                       "
+  _github: https://github.com/cmatsuoka/figlet
+  _name: Figlet
+  _short: 'Figlet is a command-line tool that generates text banners in various fonts.                                                                                                                               '
+  apt: figlet
+  brew: figlet
+  choco: figlet
+  dnf: figlet
+  pacman: figlet
+  zypper: figlet
+findutils:
+  _bin: gfind
+  _github: false
+  _preload: true
+  brew: findutils
+fzf:
+  _bin: fzf
+  _desc: "[fzf](https://github.com/junegunn/fzf) is a general-purpose command-line fuzzy finder. It's an interactive Unix filter for command-line that can be used with any list; files, command history, processes, hostnames, bookmarks, git commits, etc."
+  _docs: https://github.com/junegunn/fzf#usage
+  _github: https://github.com/junegunn/fzf
+  _home: https://github.com/junegunn/fzf
+  _name: fzf
+  _preload: true
+  _short: 'fzf is a command-line fuzzy finder for searching and selecting items interactively.                                                                                                                       '
+  apk: fzf
+  apt: fzf
+  brew: fzf
+  dnf:fedora: fzf
+  nix: nixpkgs.fzf
+  pacman: fzf
+  pkg-freebsd: fzf
+  pkg_add: fzf
+  pkgin: fzf
+  port: fzf
+  xbps: fzf
+  zypper: fzf
+gawk:
+  _bin: gawk
+  _desc: An implementation of the AWK programming language
+  _docs: https://www.gnu.org/software/gawk/manual/
+  _github: false
+  _preload: true
+  _home: https://www.gnu.org/software/gawk/
+  _name: gawk
+  apt: gawk
+  brew: gawk
+  choco: gawk
+  dnf: gawk
+  pacman: gawk
+  port: gawk
+  scoop: gawk
+gcc:
+  _bin: gcc
+  _desc: "The link https://github.com/gcc-mirror/gcc leads to the official mirror of the GNU Compiler Collection (GCC) on GitHub. GCC is a widely used compiler for programming languages like C, C++, and Fortran. \nThis repository contains the source code for GCC, allowing developers to contribute to its development, report issues, and access the latest updates. It's a valuable resource for anyone interested in   \nunderstanding or modifying the inner workings of this essential compiler tool.                                                                                                                            "
+  _github: https://github.com/gcc-mirror/gcc
+  _name: GCC
+  _preload: true
+  _short: 'The gcc-mirror/gcc repository on GitHub is a mirror of the official GCC (GNU Compiler Collection) repository.                                                                                             '
+  apt: gcc
+  brew: gcc
+  dnf: gcc
+  pacman: gcc
+  port: gcc11
+gh:
+  _bin: gh
+  _desc: '[gh](https://cli.github.com/) is GitHub on the command line. It brings pull requests, issues, and other GitHub concepts to the terminal next to where you are already working with git and your code.'
+  _docs: https://cli.github.com/manual/
+  _github: https://github.com/cli/cli
+  _home: https://cli.github.com/
+  _name: Github CLI
+  _preload: true
+  _short: 'GitHub CLI is a command-line tool that brings GitHub to your terminal.                                                                                                                                    '
+  brew: gh
+  choco: gh
+  port: gh
+  scoop: gh
+  winget: GitHub.cli
+gifsicle:
+  _bin: gifsicle
+  _desc: "Gifsicle is a powerful command-line tool for creating, editing, and optimizing GIF images. It allows you to manipulate GIF files by resizing, optimizing, and applying various effects. With Gifsicle, you\ncan merge multiple GIFs, extract frames, and adjust colors. It's a versatile tool for working with GIF images efficiently. You can find more information and detailed usage instructions on its GitHub    \npage: https://github.com/kohler/gifsicle.                                                                                                                                                                 "
+  _github: https://github.com/kohler/gifsicle
+  _name: Gifsicle
+  _short: 'gifsicle is a powerful command-line tool for creating, editing, and optimizing GIF images.                                                                                                                '
+  apt: gifsicle
+  brew: gifsicle
+  choco: gifsicle
+  dnf: gifsicle
+  pacman: gifsicle
+  port: gifsicle
+  scoop: gifsicle
+git:
+  _bin: git
+  _desc: "git/git is the official repository for the Git version control system. It contains the source code for Git, along with documentation, release notes, and other resources. Users can contribute to Git by  \nsubmitting pull requests, reporting issues, and participating in discussions. The repository is maintained by the Git community and serves as the central hub for all things related to the development   \nand improvement of Git.                                                                                                                                                                                   "
+  _github: https://github.com/git/git
+  _name: 'git                                                                                                                                                                                                       '
+  _preload: true
+  _short: 'git/git is the official repository for the Git version control system.                                                                                                                                    '
+  apk: git
+  apt: git
+  brew: git
+  dnf: git
+glow:
+  _bin: glow
+  _desc: Glow is a terminal based markdown reader designed from the ground up to bring out the beauty—and power—of the CLI
+  _github: https://github.com/charmbracelet/glow
+  _name: glow
+  _preload: true
+  _short: 'Glow is a terminal markdown viewer for Unix systems.                                                                                                                                                      '
+  brew: glow
+  github: github.com/charmbracelet/glow
+  pkg: glow
+  scoop: glow
+  yay: glow
+gnu:
+  _deps:darwin:
+    - coreutils
+    - findutils
+    - gawk
+    - gnu-indent
+    - gnu-tar
+    - gnu-sed
+    - gnutls
+    - grep
+  _github: false
+  _preload: true
+gnu-indent:
+  _bin: gindent
+  _github: false
+  _preload: true
+  brew: gnu-indent
+gnu-sed:
+  _bin: gsed
+  _github: false
+  _preload: true
+  brew: gnu-sed
+gnu-tar:
+  _bin: gtar
+  _github: false
+  _preload: true
+  brew: gnu-tar
+gnutls:
+  _bin: gnutls-certtool
+  _preload: true
+  _github: false
+  brew: gnutls
+go:
+  _bin: go
+  _desc: '[Go](https://golang.org/) is a statically typed, compiled programming language designed at Google by Robert Griesemer, Rob Pike, and Ken Thompson. Go is syntactically similar to C, but with memory safety, garbage collection, structural typing, and CSP-style concurrency.'
+  _docs: https://go.dev/doc/
+  _github: https://github.com/golang/go
+  _home: https://go.dev/
+  _name: Go
+  _preload: true
+  _short: 'The official repository for the Go programming language.                                                                                                                                                  '
+  apt: golang-go
+  brew: go
+  choco: golang
+  pacman: go
+  port: go
+  scoop: go
+  snap: go --classic
+gomplate:
+  _bin: gomplate
+  _desc: A flexible commandline tool for template rendering. Supports lots of local and remote datasources.
+  _docker: docker run hairyhenderson/gomplate:stable
+  _docs: https://docs.gomplate.ca/
+  _github: https://github.com/hairyhenderson/gomplate
+  _home: https://gomplate.ca/
+  _preload: true
+  _name: Gomplate
+  _short: 'gomplate is a versatile command-line tool for manipulating text templates with data.                                                                                                                      '
+  apk: gomplate
+  brew: gomplate
+  choco: gomplate
+  port: gomplate
+grep:
+  _bin: grep
+  _github: false
+  _preload: true
+  apt: grep
+  brew: grep
+  dnf: grep
+  pacman: grep
+  zypper: grep
+iterm2:
+  _app: iTerm.app
+  _bin: iterm2
+  _desc: '[iTerm2](https://eugeny.github.io/iterm2/) is a highly configurable terminal emulator, SSH and serial client for Windows, macOS and Linux.'
+  _docs: https://iterm2.com/documentation.html
+  _github: https://github.com/gnachman/iTerm2
+  _home: https://iterm2.com/
+  _name: iTerm2
+  _post: |
+    gum log -sl info "Setting iTerm2 options location to Install Doctor Chezmoi location" && defaults write com.googlecode.iterm2 PrefsCustomFolder -string "${XDG_DATA_HOME:-$HOME/.local/share}/chezmoi/home/Library/Preferences/com.googlecode.iterm2.plist"
+    gum log -sl info "Setting iTerm2 to automatically sync with managed options" && defaults write com.googlecode.iterm2 NoSyncNeverRemindPrefsChangesLostForFile_selection -int 2
+  _short: iTerm2 is a popular terminal emulator for macOS with advanced features like split panes, search, autocomplete, and more.
+  cask:
+    - iterm2
+    - itermai
+java:
+  _bin: null
+  _desc: '[Java](https://www.java.com/en/) is a class-based, object-oriented programming language that is designed to have as few implementation dependencies as possible.'
+  _docs: https://docs.oracle.com/en/cloud/paas/nosql-cloud/index.html
+  _github: https://github.com/oracle/nosql-java-sdk
+  _home: https://www.java.com/en/
+  _name: Java
+  _preload: true
+  _short: 'nosql-java-sdk is a Java library for interacting with Oracle NoSQL Database.                                                                                                                              '
+  _when:cask: '! brew list temurin > /dev/null'
+  apt: openjdk-11-jdk
+  brew: openjdk
+  cask: temurin
+  choco: jdk11
+  dnf: java-11-openjdk-devel.x86_64
+  pacman: jdk-openjdk
+  port: openjdk11
+  scoop: openjdk11
+jiq:
+  _bin: jiq
+  _desc: Create jq queries interactively by leveraging a live reload feature in the terminal
+  _github: https://github.com/fiatjaf/jiq
+  _name: jiq
+  _short: 'jiq is a command-line tool for manipulating JSON data using jq expressions.                                                                                                                               '
+  github: github.com/fiatjaf/jiq/cmd/jiq
+  go: github.com/fiatjaf/jiq/cmd/jiq@latest
+jq:
+  _bin: jq
+  _desc: '[jq](https://github.com/stedolan/jq) is like sed for JSON data. You can use it to slice and filter and map and transform structured data with the same ease that sed, awk, grep and friends let you play with text.'
+  _docs: https://stedolan.github.io/jq/manual/
+  _github: https://github.com/stedolan/jq
+  _home: https://stedolan.github.io/jq
+  _name: jq
+  _preload: true
+  _short: 'jq is a lightweight and flexible command-line JSON processor for parsing, manipulating, and formatting JSON data efficiently.                                                                             '
+  apk: jq
+  apt: jq
+  brew: jq
+  choco: jq
+  dnf: jq
+  github: github.com/stedolan/jq
+  pkg: jq
+just:
+  _bin: just
+  _desc: "Just is a command runner tool for executing tasks defined in a file called justfile. It simplifies task automation by providing a straightforward syntax for defining and running commands. Justfile      \ncontains task definitions with associated shell commands, making it easy to manage and execute tasks efficiently. Just is particularly useful for developers and system administrators who need a simple  \nand flexible way to automate common tasks in their workflow. It is open-source and available on GitHub at https://github.com/casey/just.                                                                  "
+  _github: https://github.com/casey/just
+  _name: Just
+  _short: 'Just is a command runner for project-specific tasks, written in Rust.                                                                                                                                     '
+  apk: just
+  apt: just
+  brew: just
+  cargo: just
+  choco: just
+  dnf: just
+  eopkg: just
+  nix-env: nixpkgs.just
+  pacman: just
+  pkg-freebsd: just
+  port: just
+  scoop: just
+  snap: --edge --classic just
+  winget: Casey.Just
+  xbps: just
+license:
+  _bin: license
+  _desc: Command-line license text generator
+  _github: https://github.com/nishanths/license
+  _name: license
+  _short: 'license is a tool that helps you add licenses to your projects easily by providing a simple command-line interface.                                                                                       '
+  go: github.com/nishanths/license@latest
+  yay: nishanths-license-git
+lolcat:
+  _bin: lolcat
+  _desc: "lolcat is a colorful command-line tool for Linux and MacOS that outputs text in rainbow colors. It takes standard input and applies rainbow coloring to it before displaying it in the terminal. It's     \noften used to make terminal output more visually appealing or to highlight specific text. The tool is popular among developers and system administrators for adding a fun touch to their command-line     \ninterfaces.                                                                                                                                                                                               "
+  _github: https://github.com/busyloop/lolcat
+  _name: lolcat
+  _short: 'lolcat is a command-line tool that outputs rainbow-colored text in the terminal.                                                                                                                          '
+  brew: lolcat
+  choco: lolcat
+  snap: lolcat
+lsd:
+  _bin: lsd
+  _deprecated: Deprecated in favor of using `exa`. `lsd` may be re-introduced when Windows support is added.
+  _desc: '[LSD](https://github.com/Peltoche/lsd) (LSDeluxe), a clone of ls, is the next gen ls command with colorful output, file type icons, and more.'
+  _docs: https://github.com/lsd-rs/lsd
+  _github: https://github.com/Peltoche/lsd
+  _home: https://github.com/lsd-rs/lsd
+  _name: LSD (LSDeluxe)
+  _notes: Only the Chocolatey definition is included because LSD is only used on Windows (when `exa` is not available)
+  _short: 'lsd is a modern replacement for ls command with more features and a colorful interface.                                                                                                                   '
+  apt: lsd
+  brew: lsd
+  cargo: lsd
+  choco: lsd
+  dnf: lsd
+  eopkg: lsd
+  pacman: lsd
+  pkg-freebsd: lsd
+  pkg-termux: lsd
+  port: lsd
+  scoop: lsd
+  xbps: lsd
+  zypper: lsd
+lua:
+  _bin: lua
+  _desc: "Lua is a powerful, efficient, lightweight, embeddable scripting language. It is designed to be simple yet powerful, making it ideal for various applications, including scripting, game development, and  \nembedded systems. Lua's source code is available on GitHub at https://github.com/lua/lua, where you can find the latest releases, documentation, and community contributions. Lua is known for its        \nsimplicity, speed, and flexibility, making it a popular choice for developers looking to add scripting capabilities to their projects.                                                                    "
+  _github: https://github.com/lua/lua
+  _name: Lua
+  _short: 'Lua is a lightweight, efficient scripting language designed for embedded systems and extensibility in other applications.                                                                                 '
+  apt: lua
+  brew: lua
+  choco: lua
+  dnf: lua
+  pacman: lua
+mise:
+  _bin: mise
+  _desc: "Mise is a tool created by jdx available on GitHub at https://github.com/jdx/mise. It is a simple script that helps in managing macOS system preferences from the command line. With Mise, you can easily  \nset and get various system preferences like dark mode, accent color, wallpaper, and more. It provides a convenient way to automate the customization of macOS settings, making it useful for system       \nadministrators and power users who prefer working with the command line interface.                                                                                                                        "
+  _github: https://github.com/jdx/mise
+  _name: mise
+  _preload: true
+  _short: 'Mise is a tool for managing macOS dotfiles.                                                                                                                                                               '
+  apk: mise
+  brew: mise
+  cargo: mise-cli
+  nix-env: mise
+  npm: '@jdxcode/mise'
+  port: port
+netcat:
+  _bin: netcat
+  _desc: netcat (often abbreviated to nc) is a computer networking utility for reading from and writing to network connections using TCP or UDP.
+  _github: false
+  _preload: true
+  _home: https://nc110.sourceforge.io/
+  _name: netcat
+  apt: netcat-openbsd
+  brew: netcat
+  choco: netcat
+  dnf: netcat
+  pacman: netcat
+  scoop: netcat
+nmap:
+  _bin: nmap
+  _desc: '[Nmap](https://github.com/nmap/nmap) (short for Network Mapper) is a free and open source utility for network discovery and security auditing. Many systems and network administrators also find it useful for tasks such as network inventory, managing service upgrade schedules, and monitoring host or service uptime. Nmap uses raw IP packets in novel ways to determine what hosts are available on the network, what services those hosts are offering, what operating systems they are running, what type of packet filters/firewalls are in use, and dozens of other characteristics. It was designed to rapidly scan large networks, but works fine against single hosts. Nmap runs on all major operating systems.'
+  _docs: https://nmap.org/docs.html
+  _github: https://github.com/nmap/nmap
+  _home: https://nmap.org/
+  _name: Nmap
+  _post:snap: sudo snap connect nmap:network-control
+  _short: 'Nmap is a popular open-source network scanning tool used for network discovery and security auditing.                                                                                                     '
+  apt: nmap
+  brew: nmap
+  choco: nmap
+  dnf: nmap
+  pacman: nmap
+  port: nmap
+  scoop: nmap
+  snap: nmap
+openjdk:
+  _bin: javac
+  _desc: Latest version of the OpenJDK (Java Development Kit)
+  _docs: https://openjdk.org/groups/build/doc/building.html
+  _github: https://github.com/openjdk/jdk
+  _home: https://openjdk.org/
+  _name: OpenJDK
+  _preload: true
+  _short: 'The https://github.com/openjdk/jdk repository contains the source code for the OpenJDK project, which is an open-source implementation of the Java Platform, Standard Edition.                            '
+  apt: default-jdk
+  brew: openjdk
+  choco: openjdk
+  dnf: java-latest-openjdk.x86_64
+  pacman: jdk-openjdk
+openssh-server:
+  _github: false
+  _service:
+    - name: sshd
+      sudo: false
+  _preload: true
+  _when: test -f /proc/version && ! grep Microsoft /proc/version > /dev/null && ! test -d /Applications'
+  apt: openssh-server
+  dnf: openssh-server
+  pacman: openssh
+openssl:
+  _bin: openssl
+  _github: false
+  _preload: true
+  _name: OpenSSL
+  apt: openssl
+  brew: openssl
+  choco: openssl
+  dnf: openssl
+  pacman: openssl
+  port: openssl
+  scoop: openssl
+openssl-osx-ca:
+  _bin: openssl-osx-ca
+  _desc: "openssl-osx-ca is a script that simplifies managing a local certificate authority on macOS using OpenSSL. It helps in creating and managing SSL certificates for local development environments. This     \nscript automates the process of generating a CA certificate and key, and then using them to sign server certificates. It also provides commands to install the CA certificate in the macOS system keychain\nfor trusted SSL connections. This tool is useful for developers working on projects that require SSL certificates for local testing and development purposes.                                             "
+  _github: https://github.com/raggi/openssl-osx-ca
+  _name: OpenSSL macOS CA
+  _preload: true
+  _service:
+    - openssl-osx-ca
+  _serviceEnabled: true
+  _short: "openssl-osx-ca is a script that simplifies managing SSL certificates on MacOS by using the system's keychain.                                                                                             "
+  brew:darwin: raggi/ale/openssl-osx-ca
+pipx:
+  _bin: pipx
+  _deprecated: The `pipx` installation is handled by the `install-program` program bundled with Install Doctor.
+  _desc: "[pipx](https://pypi.org/project/pipx/) is a tool to help you install and run end-user applications written in Python. It's roughly similar to macOS's brew, JavaScript's npx, and Linux's apt"
+  _docs: https://pypa.github.io/pipx/
+  _github: https://github.com/pypa/pipx
+  _home: https://pypi.org/project/pipx/
+  _name: 'pipx                                                                                                                                                                                                      '
+  _post:brew: pipx ensurepath
+  _preload: true
+  _short: 'pipx is a tool that allows you to install and run Python applications in isolated environments.                                                                                                           '
+  brew: pipx
+pnpm:
+  _bin: pnpm
+  _desc: '[pnpm](https://github.com/pnpm/pnpm) is a fast, disk space efficient package manager'
+  _docs: https://pnpm.io/motivation
+  _github: https://github.com/pnpm/pnpm
+  _home: https://pnpm.io/
+  _name: pnpm
+  _preload: true
+  _short: 'pnpm is a fast, disk space-efficient package manager for Node.js projects.                                                                                                                                '
+  brew: pnpm
+  npm: pnpm
+  scoop: pnpm
+  yay: pnpm
+poetry:
+  _bin: poetry
+  _desc: '[Poetry](https://python-poetry.org) helps you declare, manage and install dependencies of Python projects, ensuring you have the right stack everywhere.'
+  _docs: https://python-poetry.org/docs/
+  _github: https://github.com/python-poetry/poetry
+  _home: https://python-poetry.org/
+  _name: Poetry
+  _preload: true
+  _short: 'Poetry is a Python dependency management and packaging tool that simplifies and streamlines the process of managing Python projects.                                                                      '
+  brew: poetry
+  yay: python-poetry-git
+projen:
+  _bin: projen
+  _desc: "Projen is a development tool for creating and maintaining modern software projects. It allows you to define your project structure, CI/CD, package management, and more using a familiar programming      \nlanguage (TypeScript). With Projen, you can define your project's configuration in code, which helps in automating project setup and maintenance tasks. It supports various project types like Node.js,   \nPython, Java, and more, making it a versatile tool for managing project configurations in a structured and consistent manner.                                                                             "
+  _github: https://github.com/projen/projen
+  _name: Projen
+  _short: 'projen is a development tool for creating and maintaining modern project configurations using code.                                                                                                       '
+  npm: projen
+  pnpm: projen
+python:
+  _bin: python3
+  _desc: "CPython is the official implementation of the Python programming language. It is written in C and is maintained by the Python Software Foundation. The repository contains the source code for Python     \ninterpreter, standard library, and various tools. Developers can contribute to the project by submitting bug fixes, new features, and improvements. CPython is widely used and serves as a reference      \nimplementation for the Python language specification.                                                                                                                                                     "
+  _github: https://github.com/python/cpython
+  _name: 'cpython                                                                                                                                                                                                   '
+  _preload: true
+  _post:brew: python3 -m pip install --upgrade setuptools && python3 -m pip install --upgrade pip
+  _short: 'Official repository for the Python programming language.                                                                                                                                                  '
+  apt:
+    - python3-pip
+    - python3-setuptools
+  brew: python
+  dnf:
+    - python3-pip
+    - python3-setuptools
+  pacman:
+    - python-pip
+    - python-setuptools
+  scoop: python
+  zypper:
+    - python3-pip
+    - python3-setuptools
+rar:
+  _bin:
+    - rar
+    - unrar
+  _desc: Provides the ability to use rar compression
+  _docs: null
+  _github: null
+  _home: null
+  _preload: true
+  _name: RAR
+  apt:
+    - rar
+    - unrar
+  cask: rar
+  dnf:
+    - rar
+    - unrar
+  pacman:
+    - rar
+    - unrar
+raspberry-pi-imager:
+  _app: Raspberry Pi Imager.app
+  _bin: rpi-imager
+  _deprecated: Unneeded - can load on demand, when needed
+  _desc: '[Raspberry Pi Imager](https://www.raspberrypi.org/software/) is the quick and easy way to install Raspberry Pi OS and other operating systems to a microSD card, ready to use with your Raspberry Pi.'
+  _docs: https://www.raspberrypi.com/documentation/computers/getting-started.html
+  _github: https://github.com/raspberrypi/rpi-imager
+  _home: https://www.raspberrypi.com/software/
+  _name: Raspberry Pi Imager
+  _short: 'rpi-imager is a tool for easily flashing operating system images onto SD cards for Raspberry Pi devices.                                                                                                  '
+  cask: raspberry-pi-imager
+  choco: rpi-imager
+  dnf: rpi-imager
+  flatpak: org.raspberrypi.rpi-imager
+  snap: rpi-imager
+  yay: rpi-imager
+raycast:
+  _app: Raycast.app
+  _bin: raycast
+  _desc: Everything you need to extend Raycast (the search provider for macOS)
+  _docs: https://developers.raycast.com/
+  _env:
+    RAYCAST_APPDATA:
+      cask: $HOME/Library/Application Support/com.raycast.macos
+  _github: https://github.com/raycast/extensions
+  _home: https://www.raycast.com/
+  _name: Raycast
+  _short: 'Raycast Extensions is a collection of productivity tools and scripts for the Raycast app, designed to enhance workflow efficiency on MacOS.                                                               '
+  cask: raycast
+rclone:
+  _bin: rclone
+  _desc: '[Rclone](https://rclone.org/) is an open source, multi threaded, command line computer program to manage content on cloud and other high latency storage. Its capabilities include sync, transfer, crypt, cache, union, compress and mount. The rclone website lists [fifty supported backends](https://rclone.org/overview/) including S3 services and Google Drive.'
+  _docs: https://rclone.org/docs/
+  _github: https://github.com/rclone/rclone
+  _groups:
+    - rclone
+  _home: https://rclone.org/
+  _name: Rclone
+  _preload: true
+  _short: 'rclone is a command-line program to manage files on cloud storage.                                                                                                                                        '
+  apt: rclone
+  brew: rclone
+  choco:
+    - rclone
+    - winfsp
+    - nssm
+  dnf: rclone
+  pacman: rclone
+  port: rclone
+  scoop: rclone
+ripgrep:
+  _bin: rg
+  _desc: '[ripgrep](https://github.com/BurntSushi/ripgrep) is a line-oriented search tool that recursively searches your current directory for a regex pattern. By default, ripgrep will respect your .gitignore and automatically skip hidden files/directories and binary files. This role also installs ripgrep-all. [ripgrep-all](https://github.com/phiresky/ripgrep-all) is just like ripgrep except it also searches in PDFs, E-Books, Office documents, zip, tar.gz, etc.'
+  _github: https://github.com/BurntSushi/ripgrep
+  _name: ripgrep
+  _preload: true
+  _short: 'ripgrep is a fast, line-oriented search tool that recursively searches your current directory for a regex pattern while respecting your gitignore rules.                                                  '
+  apt: ripgrep
+  brew: ripgrep
+  cargo: ripgrep
+  choco: ripgrep
+  dnf: ripgrep
+  nix: ripgrep
+  pacman: ripgrep
+  pkg: ripgrep
+  port: ripgrep
+  scoop: ripgrep
+  zypper: ripgrep
+ripgrep-all:
+  _bin: rga
+  _desc: rga is a line-oriented search tool that allows you to look for a regex in a multitude of file types. rga wraps the awesome ripgrep and enables it to search in pdf, docx, sqlite, jpg, movie subtitles (mkv, mp4), etc.
+  _github: https://github.com/phiresky/ripgrep-all
+  _name: 'ripgrep-all                                                                                                                                                                                               '
+  _preload: true
+  _short: "ripgrep-all is a tool that combines the power of ripgrep and fd to search files in a directory tree. It's fast, efficient, and highly customizable for searching text content.                            "
+  brew:
+    - ffmpeg
+    - pandoc
+    - poppler
+    - rga
+    - tesseract
+  choco: ripgrep-all
+  nix: ripgrep-all
+  pacman: ripgrep-all
+rsync:
+  _bin: rsync
+  _desc: rsync is an open source utility that provides fast incremental file transfer.
+  _docs: https://rsync.samba.org/documentation.html
+  _github: https://github.com/WayneD/rsync
+  _home: https://rsync.samba.org/
+  _preload: true
+  _name: rsync
+  _short: 'rsync is a fast and versatile file synchronization tool for Unix-like systems.                                                                                                                            '
+  apt: rsync
+  brew: rsync
+  choco: rsync
+  dnf: rsync
+ruff:
+  _bin: ruff
+  _desc: An extremely fast Python linter, written in Rust.
+  _docs: https://beta.ruff.rs/docs/
+  _github: https://github.com/charliermarsh/ruff
+  _home: https://beta.ruff.rs/docs/
+  _name: Ruff
+  _short: 'ruff is a lightweight, fast, and flexible web framework for building web applications in Rust.                                                                                                            '
+  apk: ruff
+  brew: ruff
+  pacman: ruff
+  pipx: ruff
+rust:
+  _bin: rustc
+  _desc: '[Rust](https://www.rust-lang.org/) is a multi-paradigm programming language designed for performance and safety, especially safe concurrency.'
+  _docs: https://www.rust-lang.org/learn
+  _github: https://github.com/rust-lang/rust
+  _home: https://www.rust-lang.org/
+  _name: Rust
+  _preload: true
+  _short: 'rust-lang/rust is the official Rust programming language repository on GitHub.                                                                                                                            '
+  brew: rust
+  choco: rust
+  dnf:
+    - cargo
+    - rust
+  pacman: rust
+  port:
+    - cargo
+    - rust
+  scoop: rust
+  script:darwin: curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
+  script:linux: curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
+sake:
+  _bin: sake
+  _desc: Sake is a task runner for local and remote hosts
+  _docs: https://sakecli.com/examples
+  _github: https://github.com/alajmo/sake
+  _home: https://sakecli.com/
+  _name: Sake
+  _short: 'Sake is a simple task runner for Swift projects.                                                                                                                                                          '
+  brew: alajmo/sake/sake
+  go: github.com/alajmo/sake@latest
+  script:darwin: curl -sfL https://raw.githubusercontent.com/alajmo/sake/main/install.sh | sh
+  script:linux: curl -sfL https://raw.githubusercontent.com/alajmo/sake/main/install.sh | sh
+samba:
+  _bin:
+    - smbcontrol
+    - smbd
+  _bin:dnf: smb
+  _desc: '[Samba](https://www.samba.org/) is a free and open-source software that allows files to be shared across Windows and Linux systems simply and easily. To be exact, it is an open-source implementation of the SMB/CIFS protocol.'
+  _docs: https://www.samba.org/samba/docs/
+  _github: https://github.com/samba-team/samba
+  _groups:
+    - sambausers
+  _home: https://www.samba.org/
+  _name: Samba
+  _service:
+    - name: smbd
+      sudo: true
+      pkg: apt
+    - name: smb
+      sudo: true
+      pkg: dnf
+    - name: smbd
+      sudo: true
+      pkg: pacman
+  _preload: true
+  _short: 'Samba is an open-source software suite that provides file and print services for various Microsoft Windows clients.                                                                                       '
+  apt: samba
+  brew: samba
+  dnf: samba
+  pacman: samba
+  port: samba4
+shellcheck:
+  _bin: shellcheck
+  _desc: A static analysis tool for shell scripts
+  _docker: docker run --rm -v "$PWD:/mnt" koalaman/shellcheck:stable
+  _docs: https://github.com/koalaman/shellcheck/wiki/Directive
+  _github: https://github.com/koalaman/shellcheck
+  _home: https://www.shellcheck.net/
+  _name: Shellcheck
+  _short: 'ShellCheck is a static analysis tool for shell scripts, helping to identify and fix common issues and improve script quality.                                                                             '
+  apt: shellcheck
+  brew: shellcheck
+  cabal: shellcheck
+  choco: shellcheck
+  dnf: shellcheck
+  emerge: shellcheck
+  eopkg: shellcheck
+  nix: nixpkgs.shellcheck
+  pacman: shellcheck
+  pkg-freebsd: shellcheck
+  pkg_add: shellcheck
+  port: shellcheck
+  scoop: shellcheck
+  snap: shellcheck
+  stack: shellcheck
+  zypper: shellcheck
+skate:
+  _bin: skate
+  _desc: Skate is a personal key-value store. Use it to save and retrieve anything you'd like—even binary data. It's fully encrypted, backed up to the cloud (that you can self-host if you want) and can be synced with all your machines
+  _github: https://github.com/charmbracelet/skate
+  _name: skate
+  _short: 'Skate is a terminal-based visual layout tool for creating interactive user interfaces in Go.                                                                                                              '
+  brew: charmbracelet/tap/skate
+  go: github.com/charmbracelet/skate@latest
+  nix: nixpkgs.skate
+  pacman: skate
+steampipe:
+  _bin: steampipe
+  _desc: "Steampipe is an open-source DevOps tool that allows you to query, analyze, and interact with cloud infrastructure using SQL. It provides a unified way to access and manage data across multiple cloud    \nproviders like AWS, Azure, Google Cloud, and more. With Steampipe, you can write SQL queries to retrieve information about your cloud resources, automate compliance checks, and perform various tasks    \nefficiently. It offers a plugin-based architecture, making it easy to extend its functionality to support different cloud services and custom use cases.                                                  "
+  _github: https://github.com/turbot/steampipe
+  _name: Steampipe
+  _short: 'Steampipe is an open-source DevOps tool that allows you to query, analyze, and monitor cloud infrastructure using SQL.                                                                                    '
+  brew: turbot/tap/steampipe
+thefuck:
+  _bin: fuck
+  _desc: Magnificent CLI tool that corrects your previous console command whenever something fails due to misspelling.
+  _docs: https://github.com/nvbn/thefuck
+  _github: https://github.com/nvbn/thefuck
+  _home: https://github.com/nvbn/thefuck
+  _name: The Fuck
+  _short: 'thefuck is a command-line tool that corrects your previous console command typos.                                                                                                                         '
+  brew: thefuck
+  crew: thefuck
+  pacman: thefuck
+  pipx: thefuck
+  pkg-freebsd: thefuck
+tldr:
+  _bin: tldr
+  _desc: Simplified and community-driven man pages
+  _github: https://github.com/tldr-pages/tldr
+  _home: https://tldr.sh/
+  _name: tldr
+  _short: 'tldr is a simplified and community-driven man pages repository for common commands, providing concise and practical examples for quick reference.                                                         '
+  brew: tldr
+  npm: tldr
+tree:
+  _bin: tree
+  _desc: '[tree-cli](https://github.com/MrRaindrop/tree-cli) is a recursive directory listing program that produces a depth indented listing of files. With no arguments, tree lists the files in the current directory. When directory arguments are given, tree lists all the files and/or directories found in the given directories each in turn. Upon completion of listing all files/directories found, tree returns the total number of files and/or directories listed.'
+  _github: https://github.com/MrRaindrop/tree-cli
+  _name: tree-cli
+  _preload: true
+  _short: 'tree-cli is a command-line tool that generates directory trees in a visually appealing way.                                                                                                               '
+  apt: tree
+  brew: tree
+  choco: tree
+  dnf: tree
+  pacman: tree
+vim:
+  _bin: vim
+  _desc: '[Vim](https://www.vim.org/) is a greatly improved version of the good old UNIX editor Vi'
+  _docs: https://www.vim.org/docs.php
+  _github: https://github.com/vim/vim
+  _home: https://www.vim.org/
+  _name: VIM
+  _preload: true
+  _short: 'Vim is a highly configurable text editor built for efficiency and speed, with a focus on keyboard shortcuts for navigation and editing.                                                                   '
+  apt: vim
+  brew: vim
+  choco: vim
+  dnf: vim
+  pacman: vim
+  port: vim
+  scoop: vim
+vscode:
+  _app: Visual Studio Code.app
+  _bin: code
+  _desc: '[Visual Studio Code](https://code.visualstudio.com/) is a freeware source-code editor made by Microsoft for Windows, Linux and macOS. Features include support for debugging, syntax highlighting, intelligent code completion, snippets, code refactoring, and embedded Git.'
+  _docs: https://code.visualstudio.com/api/references/vscode-api
+  _github: https://github.com/microsoft/vscode
+  _home: https://code.visualstudio.com/
+  _name: Visual Studio Code
+  _short: 'Visual Studio Code is a free source-code editor made by Microsoft for Windows, Linux, and macOS.                                                                                                          '
+  _post: |
+    if ! code --list-extensions | grep openai-chatgpt > /dev/null; then
+      TMP="$(mktemp)"
+      wget -O "$TMP" "https://persistent.oaistatic.com/pair-with-ai/openai-chatgpt-latest.vsix?t=261124" > /dev/null
+      code --install-extension "$TMP"
+    fi
+  cask: visual-studio-code
+  choco: vscode
+  flatpak: com.visualstudio.code
+  snap: code --classic
+  yay: visual-studio-code-bin
+vscodium:
+  _app: VSCodium.app
+  _bin: codium
+  _deprecated: Not all VSCode plugins work with VSCodium.
+  _desc: "VSCodium is a community-driven, freely-licensed binary distribution of Microsoft's Visual Studio Code. It is essentially Visual Studio Code without Microsoft branding, telemetry, and licensing. VSCodium\nprovides a more open-source alternative for developers who prefer a version of Visual Studio Code that is free from Microsoft's proprietary features. Users can find the source code, releases, and       \ndocumentation on the GitHub repository at https://github.com/VSCodium/vscodium.                                                                                                                           "
+  _github: https://github.com/VSCodium/vscodium
+  _name: 'VSCodium                                                                                                                                                                                                  '
+  _short: "VSCodium is a community-driven, freely-licensed binary distribution of Microsoft's Visual Studio Code.                                                                                                    "
+  appimage: vscodium/vscodium
+  cask: vscodium
+  choco: vscodium
+  flatpak: com.vscodium.codium
+  nix: nixpkgs.vscodium
+  scoop: vscodium
+  snap: codium --classic
+  winget: vscodium
+  yay: vscodium-bin
+wget:
+  _bin: wget
+  _desc: The [wget](https://www.gnu.org/software/wget/) command is a command line utility for downloading files from the Internet. It supports downloading multiple files, downloading in the background, resuming downloads, limiting the bandwidth used for downloads and viewing headers.
+  _github: false
+  _home: https://www.gnu.org/software/wget/
+  _name: wget
+  _preload: true
+  apk: wget
+  apt: wget
+  brew: wget
+  dnf: wget
+whalebrew:
+  _bin: whalebrew
+  _desc: Homebrew, but with Docker images (see https://github.com/whalebrew/whalebrew-packages for available packages)
+  _docs: https://github.com/whalebrew/whalebrew#usage
+  _github: https://github.com/whalebrew/whalebrew
+  _home: https://github.com/whalebrew/whalebrew
+  _name: Whalebrew
+  _short: 'Whalebrew is a tool that allows you to create and run Docker containers as if they were native commands.                                                                                                  '
+  brew: whalebrew
+  script:darwin: curl -L "https://github.com/whalebrew/whalebrew/releases/download/0.4.0/whalebrew-$(uname -s)-$(uname -m)" -o /usr/local/bin/whalebrew; chmod +x /usr/local/bin/whalebrew
+  script:linux: curl -L "https://github.com/whalebrew/whalebrew/releases/download/0.4.0/whalebrew-$(uname -s)-$(uname -m)" -o /usr/local/bin/whalebrew; chmod +x /usr/local/bin/whalebrew
+xcode:
+  _app: Xcode.app
+  _bin: xcode
+  _desc: "[Xcode](https://developer.apple.com/xcode/) is Apple's integrated development environment for macOS, used to develop software for macOS, iOS, iPadOS, watchOS, and tvOS."
+  _docs: https://developer.apple.com/documentation/xcode
+  _github: false
+  _home: https://developer.apple.com/xcode/
+  _name: XCode
+  _post: sudo xcodebuild -license accept && sudo xcodebuild -runFirstLaunch
+  mas: 497799835
+xcodeinstall:
+  _bin: xcodeinstall
+  _deprecated: The preferred method is to use mas early in the installation since Xcode might be a dependency during the full install
+  _desc: "xcodeinstall is a tool available on GitHub at https://github.com/sebsto/xcodeinstall that simplifies the installation and management of Xcode on macOS systems. It allows users to easily download and    \ninstall different versions of Xcode from the command line, which can be useful for developers who need to switch between Xcode versions for compatibility testing or other purposes. The tool provides a  \nconvenient way to automate the process of managing Xcode installations on macOS systems.                                                                                                                  "
+  _github: https://github.com/sebsto/xcodeinstall
+  _name: Xcode Install
+  _short: 'xcodeinstall is a tool for installing Xcode command line tools and simulators without needing to install the full Xcode IDE.                                                                              '
+  brew: sebsto/macos/xcodeinstall
+xxh:
+  _bin: xxh
+  _desc: "xxh is a tool that allows you to bring your favorite shell to any host. It enables you to use your shell configurations, plugins, and aliases on remote machines without any dependencies on the remote   \nhost. With xxh, you can easily connect to a remote host, run your shell, and have all your familiar settings available. It supports various shells like zsh, bash, fish, and more. This tool simplifies   \nthe process of working on different machines by providing a consistent shell environment across all your connections.                                                                                     "
+  _github: https://github.com/xxh/xxh
+  _name: xxh
+  _short: 'xxh is a tool for shell users to bring their favorite shell with them to any host.                                                                                                                        '
+  brew: xxh
+  pipx: xxh-xxh
+  port: xxh
+xz:
+  _bin:
+    - lzma
+    - xz
+    - unlzma
+    - unxz
+  _desc: "xz is a compression utility that provides high compression ratios and fast decompression. It supports various compression formats like LZMA and LZMA2, and it can compress single files or whole          \ndirectories. The utility is commonly used to compress files for distribution or archival purposes. It is open-source and available on GitHub at https://github.com/xz-mirror/xz for users to download,    \ncontribute, or report issues.                                                                                                                                                                             "
+  _github: https://github.com/xz-mirror/xz
+  _name: xz
+  _preload: true
+  _short: 'xz is a compression utility that provides high compression ratios and fast decompression.                                                                                                                 '
+  apk: xz
+  apt: xz
+  brew: xz
+  choco: xz
+  dnf: xz
+  pacman: xz
+  port: xz
+  scoop: xz
+yamllint:
+  _bin: yamllint
+  _desc: A linter for YAML files. yamllint does not only check for syntax validity, but also for weirdnesses like key repetition and cosmetic problems such as lines length, trailing spaces, indentation, etc.
+  _github: https://github.com/adrienverge/yamllint
+  _name: yamllint
+  _short: 'yamllint is a tool for checking YAML files for syntax errors and adherence to best practices.                                                                                                             '
+  brew: yamllint
+  pipx: yamllint
+zoxide:
+  _bin: zoxide
+  _desc: '[zoxide](https://github.com/ajeetdsouza/zoxide) is a blazing fast replacement for your cd command, inspired by z and autojump'
+  _github: https://github.com/ajeetdsouza/zoxide
+  _name: zoxide
+  _preload: true
+  _short: 'zoxide is a blazing fast replacement for cd, allowing you to navigate your filesystem with ease using fuzzy matching and tracking your most used directories.                                             '
+  brew: zoxide
+zsh:
+  _bin: zsh
+  _desc: '[Oh My Zsh](https://ohmyz.sh/) is a delightful, open source, community-driven framework for managing your Zsh configurations. It comes bundled with thousands of helpful functions, helpers, plugins, themes, and a few things that make you shout oh my zsh! This role also installs some CLI tools that accompany Oh My Zsh! to make it even more amazing.'
+  _github: https://github.com/zsh-users/zsh
+  _name: Zsh
+  _preload: true
+  _short: 'zsh is a powerful shell for Unix-like operating systems, offering advanced features and customization options for command-line users.                                                                     '
+  apt: zsh
+  brew: zsh
+  dnf: zsh
+  pacman: zsh
+  port: zsh
+zsh-completions:
+  _bin: zsh-completions
+  _desc: "zsh-completions is a repository on GitHub maintained by the zsh-users organization. It provides a collection of completion scripts for various commands and utilities to enhance auto-completion          \ncapabilities in the zsh shell. These completion scripts help users by suggesting and completing command options, arguments, and file paths as they type commands in the terminal. The repository is       \nregularly updated to support new commands and improve existing completions, making it a valuable resource for zsh users looking to streamline their command-line experience.                              "
+  _github: https://github.com/zsh-users/zsh-completions
+  _name: ZSH Completions
+  _preload: true
+  _short: 'zsh-completions is a repository that provides additional completion definitions for the Zsh shell, enhancing auto-completion capabilities for various commands and utilities.                             '
+  brew: zsh-completions
+zx:
+  _bin: zx
+  _desc: Bash is great, but when it comes to writing more complex scripts, many people prefer a more convenient programming language. JavaScript is a perfect choice, but the Node.js standard library requires additional hassle before using. The zx package provides useful wrappers around child_process, escapes arguments and gives sensible defaults.
+  _github: https://github.com/google/zx
+  _name: zx
+  _preload: true
+  _short: 'ZX is a tool for writing better scripts with JavaScript on macOS and Linux.                                                                                                                               '
+  brew: zx
+  npm: zx
