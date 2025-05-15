@@ -1,0 +1,2 @@
+#!/usr/bin/env sh
+./scripts/install-dev-tools.sh && $HOME/go/bin/task "$@"

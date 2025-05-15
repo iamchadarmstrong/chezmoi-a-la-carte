@@ -1,0 +1,112 @@
+{
+  "folders": [
+    {
+      "path": ".",
+      "name": "🇦➖🇱🇦➖🛒"
+    }
+  ],
+  "settings": {
+    "editor.fontFamily": "Operator Mono Lig",
+    "editor.fontWeight": "500",
+    "breadcrumbs.enabled": false,
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.lineNumbers": "on",
+    "editor.cursorBlinking": "phase",
+    "editor.cursorSmoothCaretAnimation": "on",
+    "editor.fontLigatures": "'ss05', 'calt' 0, 'dlig' 1, 'cv10' 10, 'cv31' 3, 'cv34' 8, 'cv25' 2, 'cv50' 2, 'cv71' 2, 'cv72' 1, 'cv78' 7, 'cv90' 1",
+    "editor.fontSize": 14.5,
+    "editor.formatOnSave": true,
+    "editor.glyphMargin": true,
+    "editor.guides.bracketPairs": true,
+    "editor.bracketPairColorization.enabled": true,
+    "editor.inlineSuggest.enabled": true,
+    "editor.minimap.enabled": true,
+    "editor.renderControlCharacters": true,
+    "editor.renderWhitespace": "boundary",
+    "editor.renderLineHighlight": "all",
+    "editor.scrollBeyondLastColumn": 2,
+    "editor.showFoldingControls": "mouseover",
+    "editor.smoothScrolling": true,
+    "editor.folding": true,
+    "editor.rulers": [79],
+    "explorer.confirmDragAndDrop": false,
+    "explorer.fileNesting.enabled": false,
+    "explorer.sortOrder": "type",
+    "prettier.endOfLine": "auto",
+    "prettier.singleQuote": true,
+    "redhat.telemetry.enabled": false,
+    "files.associations": {
+      "*.d2": "d2",
+      "*.tmpl": "go-template"
+    },
+    "search.exclude": {
+      "**/.git/objects/**": true,
+      "**/.git/subtree-cache/**": true,
+      "**/dist/**": true,
+      "**/node_modules/**": true,
+      "**/tmp/**": true
+    },
+    "search.followSymlinks": false,
+    "terminal.integrated.fontLigatures": true,
+    "terminal.integrated.fontFamily": "MesloLGS NF",
+    "terminal.integrated.fontSize": 13,
+    "terminal.integrated.cursorBlinking": true,
+    "terminal.integrated.cursorStyle": "line",
+    "terminal.integrated.defaultProfile.linux": "zsh",
+    "terminal.integrated.enableMultiLinePasteWarning": "never",
+    "terminal.integrated.shellIntegration.enabled": true,
+    "terminal.integrated.scrollback": 9999999999,
+    "window.commandCenter": false,
+    "window.zoomLevel": 1.0,
+    "workbench.layoutControl.enabled": false,
+    "workbench.statusBar.visible": true,
+    "[dockerfile]": {
+      "editor.defaultFormatter": "ms-azuretools.vscode-docker"
+    },
+    "[shellscript]": {
+      "editor.defaultFormatter": "foxundermoon.shell-format"
+    },
+    "[ignore]": {
+      "editor.defaultFormatter": "foxundermoon.shell-format"
+    },
+    "go.lintTool": "golangci-lint",
+    "go.lintOnSave": "package",
+    "go.lintFlags": ["--fast"],
+    "go.useLanguageServer": true,
+    "go.toolsManagement.checkForUpdates": "local",
+    "go.toolsManagement.autoUpdate": true,
+    "go.lintToolSettings": {
+      "golangci-lint": {
+        "run": "on save",
+        "args": ["--fast"]
+      }
+    },
+    "editor.codeActionsOnSave": {
+      "source.organizeImports": "explicit"
+    },
+    "[go]": {
+      "editor.formatOnSave": true,
+      "editor.codeActionsOnSave": {
+        "source.organizeImports": "explicit"
+      },
+      "editor.defaultFormatter": "golang.go"
+    },
+    "go.formatTool": "goimports",
+    "go.delveConfig": {
+      "dlvLoadConfig": {
+        "followPointers": true,
+        "maxVariableRecurse": 1,
+        "maxStringLen": 512,
+        "maxArrayValues": 64,
+        "maxStructFields": -1
+      }
+    },
+    "go.testFlags": ["-v"],
+    "go.coverOnSave": true,
+    "go.coverageDecorator": {
+      "type": "highlight",
+      "coveredHighlightColor": "rgba(64,128,128,0.5)",
+      "uncoveredHighlightColor": "rgba(128,64,64,0.25)"
+    }
+  }
+}
