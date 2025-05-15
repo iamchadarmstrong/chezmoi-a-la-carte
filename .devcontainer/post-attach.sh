@@ -1,14 +1,11 @@
 #!/bin/sh
-# exit on error
 set -e
 
-# Debug mode - set to 1 to enable
-DEBUG=${DEBUG:-0}
-# Non-interactive mode - set to 1 to skip user prompts
-NONINTERACTIVE=${NONINTERACTIVE:-0}
+if ! command -v go &> /dev/null; then
+    echo "Go is not installed, please install Go first"
+    exit 1
+fi
 
-debug() {
-    if [ "$DEBUG" = "1" ]; then
-        echo "DEBUG: $1" >&2
-    fi
-}
+if ! command -v golangci-lint &> /dev/null; then
+    go install -v github.com/golangci/golangci-lint/cmd/golangci-lint@latest
+fi

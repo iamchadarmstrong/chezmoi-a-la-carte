@@ -1,0 +1,34 @@
+version: '3'
+
+tasks:
+  lint:
+    desc: Run golangci-lint with correct PATH
+    cmds:
+      - |
+        export PATH="$HOME/go/bin:$PATH"
+        golangci-lint run
+
+  build:
+    desc: Build the chezmoi-a-la-carte binary
+    cmds:
+      - go build -v ./cmd/chezmoi-a-la-carte
+
+  run:
+    desc: Run the chezmoi-a-la-carte binary
+    cmds:
+      - go run ./cmd/chezmoi-a-la-carte
+
+  test:
+    desc: Run all Go tests
+    cmds:
+      - go test -v ./...
+
+  fmt:
+    desc: Format Go code
+    cmds:
+      - go fmt ./...
+
+  tidy:
+    desc: Tidy Go module dependencies
+    cmds:
+      - go mod tidy

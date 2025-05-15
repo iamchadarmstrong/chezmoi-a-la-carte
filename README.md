@@ -1,20 +1,20 @@
-# chezmoi-a-la-carte
+|       |       | **a** |       | **l** | **a** |       | **c** | **a** | **r** | **t** | **e** |       |       |
+| ----- | ----- | ----- | ----- | ----- | ----- | ----- | ----- | ----- | ----- | ----- | ----- | ----- | ----- |
+| **c** | **h** | **e** | **z** | **m** | **o** | **i** |       | **p** | **l** | **u** | **g** | **i** | **n** |
 
-|       | **a** | **l** | **a** |       |
-| ----- | ----- | ----- | ----- | ----- |
-| **C** | **A** | **R** | **T** | **E** |
+---
 
-[chezmoi](https://chezmoi.io) plugin for software provisioning on new systems and container environments.
+Software provisioning and configuration for host and container environments.
 
 ---
 
 ## Project Overview
 
-**chezmoi-a-la-carte** is a Go-based plugin for chezmoi that provides an advanced, beautiful terminal user interface (TUI) for software provisioning, powered by [Bubble Tea](https://github.com/charmbracelet/bubbletea). It leverages a YAML manifest (`software.yml`) to present and manage available software packages.
+**chezmoi-a-la-carte** is a Go-based plugin for [chezmoi](https://chezmoi.io) that provides an advanced, beautiful terminal user interface (TUI) for software provisioning, powered by [Bubble Tea](https://github.com/charmbracelet/bubbletea). It leverages a YAML manifest (`software.yml`) to present and manage available software packages.
 
 - **Language:** Go
 - **TUI Framework:** Bubble Tea, Bubbles, Lip Gloss
-- **Manifest:** `software.yml`
+- **Manifest:** By default, `software.yml`. You can override this by setting the `SOFTWARE_MANIFEST_PATH` environment variable or by creating a `.env` file with `SOFTWARE_MANIFEST_PATH=yourfile.yml`.
 - **Binary Name:** `chezmoi-a-la-carte`
 - **CI/CD:** GitHub Actions, release-please
 - **Commit Style:** [Conventional Commits v1](https://www.conventionalcommits.org/en/v1.0.0/)
@@ -41,10 +41,11 @@ chezmoi-a-la-carte
    ```
 3. The TUI will launch. Press `q` or `Ctrl+C` to quit.
 4. Commit messages must follow [Conventional Commits v1](https://www.conventionalcommits.org/en/v1.0.0/), enforced by commitlint and Husky.
+5. **All code must pass `golangci-lint run` before commit.** This is enforced by a Husky pre-commit hook. VS Code is pre-configured to show lint errors on save.
 
 ## Manifest
 
-- All available software is defined in `software.yml` (YAML format).
+- All available software is defined in a YAML manifest (default: `software.yml`). You can use a different file by setting the `SOFTWARE_MANIFEST_PATH` environment variable or in a `.env` file.
 
 ## CI/CD
 
@@ -55,6 +56,7 @@ chezmoi-a-la-carte
 ## Contributing
 
 - Please use [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/) for all commit messages.
+- **All code must pass `golangci-lint run` before commit.** The pre-commit hook will block commits with linter errors. You can also run `golangci-lint run` manually.
 - Pull requests are welcome! For major changes, please open an issue first to discuss what you would like to change.
 - See the [CONTRIBUTING.md](CONTRIBUTING.md) for more details (if available).
 

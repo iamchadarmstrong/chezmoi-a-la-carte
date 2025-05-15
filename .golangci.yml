@@ -1,0 +1,98 @@
+# golangci-lint configuration file
+# See https://golangci-lint.run/usage/configuration/ for all options
+
+run:
+  timeout: 3m
+
+linters:
+  enable:
+    - govet
+    - errcheck
+    - staticcheck
+    - gosimple
+    - unused
+    - ineffassign
+    - typecheck
+    - revive
+    - gofmt
+    - goimports
+    - misspell
+    - gocritic
+    - gocyclo
+    - unparam
+    - whitespace
+
+issues:
+  exclude-use-default: false
+  max-issues-per-linter: 0
+  max-same-issues: 0
+
+linters-settings:
+  gofmt:
+    simplify: true
+  goimports:
+    local-prefixes: a-la-carte
+  revive:
+    ignore-generated-header: true
+    severity: warning
+    rules:
+      - name: var-naming
+        arguments:
+          - - ID
+            - API
+            - HTTP
+            - JSON
+            - YAML
+            - URL
+            - SSH
+            - CLI
+            - TUI
+            - UI
+            - OS
+            - CPU
+            - RAM
+            - IP
+            - DNS
+            - SSL
+            - TLS
+            - REST
+            - SDK
+          - []
+          - [{}]
+  gocyclo:
+    min-complexity: 15
+  dupl:
+    threshold: 100
+  goconst:
+    min-len: 2
+    min-occurrences: 3
+  misspell:
+    locale: US
+  gocritic:
+    enabled-tags:
+      - diagnostic
+      - experimental
+      - opinionated
+      - performance
+      - style
+  gosec:
+    excludes:
+      - G101 # Look for hardcoded credentials
+      - G104 # Handle errors
+  govet:
+    check-shadowing: true
+  importas:
+    no-unaliased: true
+    no-extra-aliases: true
+    alias:
+      - pkg: a-la-carte/internal/app
+        alias: app
+  depguard:
+    listType: allow
+    packages:
+      - github.com/charmbracelet/bubbletea
+      - github.com/charmbracelet/lipgloss
+      - github.com/joho/godotenv
+      - a-la-carte/internal/app
+      - github.com/mattn/go-runewidth
+      - gopkg.in/yaml.v3
