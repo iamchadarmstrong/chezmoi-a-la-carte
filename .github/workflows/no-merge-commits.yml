@@ -8,13 +8,15 @@ jobs:
   check-merge-commits:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
+
+      - name: Fetch base branch
+        run: |
+          git fetch origin ${{ github.base_ref }}:refs/remotes/origin/${{ github.base_ref }}
 
       - name: Check for merge commits
         run: |
-          # Find merge commits in the PR
-          MERGE_COMMITS=$(git log --merges --oneline origin/main..HEAD)
+          MERGE_COMMITS=$(git log --merges --oneline origin/${{ github.base_ref }}..HEAD)
           if [ -n "$MERGE_COMMITS" ]; then
             echo "Merge commits detected in this pull request:"
             echo "$MERGE_COMMITS"
