@@ -8,6 +8,7 @@ import (
 
 	tea "github.com/charmbracelet/bubbletea"
 	"github.com/charmbracelet/lipgloss"
+	"github.com/joho/godotenv"
 	"github.com/lexnux/a-la-carte/internal/app"
 	"github.com/mattn/go-runewidth"
 )
@@ -414,7 +415,18 @@ func (m model) View() string {
 }
 
 func main() {
-	manifest, err := app.LoadManifest("software.yml")
+	// Load .env if present
+	_ = godotenv.Load()
+	// Load manifest
+	manifestPath := os.Getenv("SOFTWARE_MANIFEST_PATH")
+	if manifestPath == "" {
+		manifestPath = "software.yml"
+	}
+	manifest, err := app.LoadManifest(manifestPath)
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error loading manifest: %v\n", err)
+		os.Exit(1)
+	}
 	// Sort keys for consistent order
 	var keys []string
 	for k := range manifest {
