@@ -1,0 +1,25 @@
+name: 'Fail on Merge Commits'
+
+on:
+  pull_request:
+    branches: [main]
+
+jobs:
+  check-merge-commits:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Check for merge commits
+        run: |
+          # Find merge commits in the PR
+          MERGE_COMMITS=$(git log --merges --oneline origin/main..HEAD)
+          if [ -n "$MERGE_COMMITS" ]; then
+            echo "Merge commits detected in this pull request:"
+            echo "$MERGE_COMMITS"
+            echo "Please rebase your branch to remove merge commits."
+            exit 1
+          else
+            echo "No merge commits found."
+          fi

@@ -55,10 +55,7 @@ chezmoi-a-la-carte
 
 ## Contributing
 
-- Please use [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/) for all commit messages.
-- **All code must pass `golangci-lint run` before commit.** The pre-commit hook will block commits with linter errors. You can also run `golangci-lint run` manually.
-- Pull requests are welcome! For major changes, please open an issue first to discuss what you would like to change.
-- See the [CONTRIBUTING.md](CONTRIBUTING.md) for more details (if available).
+We welcome contributions! Please see [CONTRIBUTING.md](CONTRIBUTING.md) for detailed guidelines on commit messages, code quality, pull request process, and our linear history (no merge commits) policy.
 
 ## Roadmap
 
