@@ -4,5 +4,8 @@
   "bumpMinorPreMajor": true,
   "bumpPatchForMinorPreMajor": true,
   "defaultBranch": "main",
-  "release-type": "go"
+  "release-type": "go",
+  "packages": {
+    ".": {}
+  }
 }
