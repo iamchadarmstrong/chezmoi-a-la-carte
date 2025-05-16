@@ -22,15 +22,22 @@ const sampleYAML = `testapp:
 `
 
 func TestLoadManifest(t *testing.T) {
-	f, err := os.CreateTemp("", "manifest-*.yml")
+	f, err := os.CreateTemp("", "test-*.yml")
 	if err != nil {
-		t.Fatalf("failed to create temp file: %v", err)
+		t.Fatal(err)
 	}
-	defer os.Remove(f.Name())
-	if _, err := f.WriteString(sampleYAML); err != nil {
-		t.Fatalf("failed to write sample YAML: %v", err)
+	defer func() {
+		if closeErr := f.Close(); closeErr != nil {
+			t.Error(closeErr)
+		}
+		if removeErr := os.Remove(f.Name()); removeErr != nil {
+			t.Error(removeErr)
+		}
+	}()
+
+	if _, writeErr := f.WriteString(sampleYAML); writeErr != nil {
+		t.Fatal(writeErr)
 	}
-	f.Close()
 
 	manifest, err := LoadManifest(f.Name())
 	if err != nil {
