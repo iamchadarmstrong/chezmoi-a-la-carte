@@ -48,7 +48,9 @@ coverage.out
 .zsh_sessions/
 
 # Misc
-*.bak2
+.cursorignore
+.cursorrules
+.cursor
 *_report.md
 *_analysis.md
 scripts

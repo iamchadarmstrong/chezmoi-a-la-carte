@@ -99,7 +99,7 @@ func TestDetailsPanelFixedHeight(t *testing.T) {
 	}
 }
 
-func TestNoPanicOnEmptyList(t *testing.T) {
+func TestNoPanicOnEmptyList() {
 	m := newTestModel()
 	m.visible = []string{}
 	m.selected = 0
@@ -116,7 +116,7 @@ func TestEmojiAlignment(t *testing.T) {
 			break
 		}
 		l := lines[i]
-		if len(strings.TrimSpace(l)) > 0 && !strings.HasPrefix(l, "  ") {
+		if strings.TrimSpace(l) != "" && !strings.HasPrefix(l, "  ") {
 			// All list lines should start with emoji+space
 			if len([]rune(l)) < 2 || l[0] == ' ' {
 				t.Errorf("list line not emoji-aligned: %q", l)

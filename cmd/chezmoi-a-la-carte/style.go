@@ -53,7 +53,7 @@ type Styles struct {
 }
 
 // NewStyles returns all styles for a given theme.
-func NewStyles(theme Theme) Styles {
+func NewStyles(theme *Theme) Styles {
 	return Styles{
 		BorderStyle: lipgloss.NewStyle().
 			Border(lipgloss.RoundedBorder()).
@@ -112,4 +112,4 @@ func NewStyles(theme Theme) Styles {
 }
 
 // Global styles instance (can be swapped for theming)
-var styles = NewStyles(DefaultTheme)
+var styles = NewStyles(&DefaultTheme)
