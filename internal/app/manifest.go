@@ -1,13 +1,33 @@
 package app
 
 import (
+	"log"
 	"os"
 
 	"gopkg.in/yaml.v3"
 )
 
+// StringOrSlice is a custom type that allows unmarshalling a YAML field as either a single string or a slice of strings.
+//
+// # Usage
+//
+//	var s StringOrSlice
+//	err := yaml.Unmarshal([]byte("- foo\n- bar"), &s)
+//	// s == []string{"foo", "bar"}
+//
+// # Example
+//
+//	s := StringOrSlice{"foo", "bar"}
 type StringOrSlice []string
 
+// UnmarshalYAML implements the yaml.Unmarshaler interface for StringOrSlice.
+// It allows the field to be unmarshalled from either a single string or a sequence of strings.
+//
+// # Parameters
+//   - value: the YAML node to decode
+//
+// # Returns
+//   - error: if decoding fails or the node kind is unsupported
 func (s *StringOrSlice) UnmarshalYAML(value *yaml.Node) error {
 	switch value.Kind {
 	case yaml.ScalarNode:
@@ -24,10 +44,20 @@ func (s *StringOrSlice) UnmarshalYAML(value *yaml.Node) error {
 		}
 		*s = arr
 		return nil
+	default:
+		return &yaml.TypeError{Errors: []string{"unsupported YAML node kind for StringOrSlice"}}
 	}
-	return nil
 }
 
+// SoftwareEntry represents a single software entry in the manifest, including metadata and installation methods.
+//
+// # Fields
+//   - Bin, Desc, Docs, Github, Home, Name, Short, Groups: metadata fields
+//   - Brew, Apt, Pacman, etc.: installation methods for various package managers
+//
+// # Example
+//
+//	entry := SoftwareEntry{Name: "bat", Brew: StringOrSlice{"bat"}}
 type SoftwareEntry struct {
 	Bin           StringOrSlice `yaml:"_bin"`
 	Desc          string        `yaml:"_desc"`
@@ -66,14 +96,35 @@ type SoftwareEntry struct {
 	// Add more fields as needed
 }
 
+// Manifest represents the full manifest mapping software names to their entries.
+//
+// # Example
+//
+//	m := Manifest{"bat": SoftwareEntry{...}}
 type Manifest map[string]SoftwareEntry
 
+// LoadManifest loads a manifest from a YAML file at the given path.
+//
+// # Parameters
+//   - path: the path to the YAML manifest file
+//
+// # Returns
+//   - Manifest: the loaded manifest
+//   - error: if the file cannot be opened or decoded
+//
+// # Example
+//
+//	m, err := LoadManifest("software.yml")
 func LoadManifest(path string) (Manifest, error) {
 	f, err := os.Open(path)
 	if err != nil {
 		return nil, err
 	}
-	defer f.Close()
+	defer func() {
+		if err := f.Close(); err != nil {
+			log.Printf("Error closing file: %v", err)
+		}
+	}()
 
 	var m Manifest
 	dec := yaml.NewDecoder(f)

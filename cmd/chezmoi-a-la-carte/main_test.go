@@ -4,7 +4,7 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/lexnux/a-la-carte/internal/app"
+	"a-la-carte/internal/app"
 )
 
 // Helper: create a minimal manifest for testing
