@@ -1,4 +1,4 @@
-name: 'Fail on Merge Commits'
+name: fail-on-merge-commits
 
 on:
   pull_request:
