@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.2.1](https://github.com/iamchadarmstrong/chezmoi-a-la-carte/compare/v0.2.0...v0.2.1) (2025-05-20)
+
+
+### Bug Fixes
+
+* trigger new release for pipeline validation ([#30](https://github.com/iamchadarmstrong/chezmoi-a-la-carte/issues/30)) ([ceddc82](https://github.com/iamchadarmstrong/chezmoi-a-la-carte/commit/ceddc82362c9fda6f3720d557594b9130d1e0eb7))
+
 ## [0.2.0](https://github.com/iamchadarmstrong/chezmoi-a-la-carte/compare/v0.1.1...v0.2.0) (2025-05-20)
 
 
