@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.2.2 (2025-05-20)
+
+## What's Changed
+* chore(release): remove unused release-type parameter from workflow by @iamchadarmstrong in https://github.com/iamchadarmstrong/chezmoi-a-la-carte/pull/32
+
+
+**Full Changelog**: https://github.com/iamchadarmstrong/chezmoi-a-la-carte/compare/v0.2.1...v0.2.2
+
 ## [0.2.1](https://github.com/iamchadarmstrong/chezmoi-a-la-carte/compare/v0.2.0...v0.2.1) (2025-05-20)
 
 
