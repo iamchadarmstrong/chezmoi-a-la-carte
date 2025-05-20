@@ -1,0 +1,44 @@
+project_name: chezmoi-a-la-carte
+builds:
+  - id: chezmoi-a-la-carte
+    main: ./cmd/chezmoi-a-la-carte
+    goos:
+      - linux
+      - darwin
+      - windows
+    goarch:
+      - amd64
+      - arm64
+    ldflags:
+      - '-s -w -X main.version={{.Version}} -X main.commit={{.ShortCommit}} -X main.date={{.Date}}'
+    env:
+      - CGO_ENABLED=0
+    flags:
+      - -trimpath
+archives:
+  - id: default
+    builds:
+      - chezmoi-a-la-carte
+    format_overrides:
+      - goos: windows
+        format: zip
+    name_template: '{{ .ProjectName }}_{{ .Version }}_{{ .Os }}_{{ .Arch }}'
+    files:
+      - LICENSE
+      - README.md
+checksum:
+  name_template: 'checksums.txt'
+snapshot:
+  name_template: '{{ .Tag }}-next'
+changelog:
+  sort: asc
+  filters:
+    exclude:
+      - '^docs:'
+      - '^test:'
+release:
+  github:
+    owner: iamchadarmstrong
+    name: chezmoi-a-la-carte
+    draft: false
+    prerelease: auto
