@@ -1,3 +1,4 @@
+version: 2
 project_name: chezmoi-a-la-carte
 builds:
   - id: chezmoi-a-la-carte
@@ -17,19 +18,15 @@ builds:
       - -trimpath
 archives:
   - id: default
-    builds:
-      - chezmoi-a-la-carte
+    name_template: '{{ .ProjectName }}_{{ .Version }}_{{ .Os }}_{{ .Arch }}'
+    format: tar.gz
     format_overrides:
       - goos: windows
         format: zip
-    name_template: '{{ .ProjectName }}_{{ .Version }}_{{ .Os }}_{{ .Arch }}'
     files:
-      - LICENSE
       - README.md
 checksum:
   name_template: 'checksums.txt'
-snapshot:
-  name_template: '{{ .Tag }}-next'
 changelog:
   sort: asc
   filters:
