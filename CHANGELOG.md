@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.2.5 (2025-05-20)
+
+## What's Changed
+* chore(goreleaser): fiix deprecated archive formats in configuration by @iamchadarmstrong in https://github.com/iamchadarmstrong/chezmoi-a-la-carte/pull/38
+
+
+**Full Changelog**: https://github.com/iamchadarmstrong/chezmoi-a-la-carte/compare/v0.2.4...v0.2.5
+
 ## 0.2.4 (2025-05-20)
 
 ## What's Changed
