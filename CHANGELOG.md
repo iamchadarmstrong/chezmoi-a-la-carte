@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.2.4 (2025-05-20)
+
+## What's Changed
+* fix: add MIT License to the project by @iamchadarmstrong in https://github.com/iamchadarmstrong/chezmoi-a-la-carte/pull/36
+
+
+**Full Changelog**: https://github.com/iamchadarmstrong/chezmoi-a-la-carte/compare/v0.2.3...v0.2.4
+
 ## 0.2.3 (2025-05-20)
 
 ## What's Changed
