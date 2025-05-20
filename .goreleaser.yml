@@ -40,5 +40,3 @@ release:
   github:
     owner: iamchadarmstrong
     name: chezmoi-a-la-carte
-    draft: false
-    prerelease: auto
