@@ -3,7 +3,14 @@
   "initial-version": "0.1.1",
   "bumpMinorPreMajor": true,
   "bumpPatchForMinorPreMajor": true,
+  "changelog-type": "github",
   "defaultBranch": "main",
+  "include-component-in-tag": false,
+  "include-v-in-tag": true,
+  "pull-request-header": "chezmoi-a-la-carte 🛒 release",
+  "pull-request-title-pattern": "release: ${version}",
+  "versioning": "prerelease",
+  "extra-label": "release",
   "release-type": "go",
   "packages": {
     ".": {}
