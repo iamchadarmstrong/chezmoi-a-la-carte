@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.2.3 (2025-05-20)
+
+## What's Changed
+* chore(release): include LICENSE and CHANGELOG in release artifacts by @iamchadarmstrong in https://github.com/iamchadarmstrong/chezmoi-a-la-carte/pull/34
+
+
+**Full Changelog**: https://github.com/iamchadarmstrong/chezmoi-a-la-carte/compare/v0.2.2...v0.2.3
+
 ## 0.2.2 (2025-05-20)
 
 ## What's Changed
