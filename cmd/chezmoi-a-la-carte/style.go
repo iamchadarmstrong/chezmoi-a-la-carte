@@ -17,6 +17,7 @@ type Theme struct {
 	Search     lipgloss.Color
 	Footer     lipgloss.Color
 	Focus      lipgloss.Color
+	FocusBg    lipgloss.Color // subtle background for focused pane
 }
 
 // DefaultTheme is a Nord-inspired color palette.
@@ -34,6 +35,7 @@ var DefaultTheme = Theme{
 	Search:     lipgloss.Color("#99a7bf"),
 	Footer:     lipgloss.Color("#6e738d"),
 	Focus:      lipgloss.Color("#51e1a6"),
+	FocusBg:    lipgloss.Color("#232946"), // very subtle blue-gray
 }
 
 // Styles holds all Lip Gloss styles for the TUI.
@@ -54,6 +56,7 @@ type Styles struct {
 
 // NewStyles returns all styles for a given theme.
 func NewStyles(theme *Theme) Styles {
+	leftPanelWidth := (panelWidth - 4) / 2
 	return Styles{
 		BorderStyle: lipgloss.NewStyle().
 			Border(lipgloss.RoundedBorder()).
@@ -76,11 +79,11 @@ func NewStyles(theme *Theme) Styles {
 			Foreground(theme.SelectedFg).
 			Background(theme.SelectedBg).
 			Bold(true).
-			Width(panelWidth - 8),
+			Width(leftPanelWidth - 2),
 		ItemStyle: lipgloss.NewStyle().
 			Foreground(theme.ItemFg).
 			Padding(0, 1).
-			Width(panelWidth - 8),
+			Width(leftPanelWidth - 2),
 		DetailKey: lipgloss.NewStyle().
 			Bold(true).
 			Foreground(theme.DetailKey),
@@ -90,11 +93,8 @@ func NewStyles(theme *Theme) Styles {
 			Foreground(theme.Search).
 			Bold(true),
 		ListPanel: lipgloss.NewStyle().
-			Border(lipgloss.DoubleBorder()).
-			BorderForeground(theme.Border).
-			Padding(0, 2).
-			Margin(0, 0).
-			Width(panelWidth - 6),
+			Padding(0, 0).
+			Margin(0, 0),
 		DetailPanel: lipgloss.NewStyle().
 			Border(lipgloss.DoubleBorder()).
 			BorderForeground(theme.Border).
