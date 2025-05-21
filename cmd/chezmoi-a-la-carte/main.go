@@ -42,7 +42,7 @@ import (
 )
 
 const (
-	panelWidth         = 80
+	panelWidth         = 120
 	listHeight         = 12
 	detailHeight       = 7
 	detailHeightExpand = 16
@@ -51,7 +51,7 @@ const (
 type focusArea int
 
 const (
-	focusList focusArea = iota
+	focusSoftware focusArea = iota // either left or right pane
 	focusDetails
 )
 
@@ -66,49 +66,63 @@ const (
 //   - selected:     Index of the currently selected entry.
 //   - search:       Current search query.
 //   - searching:    Whether the search input is active.
-//   - focus:        Which panel is focused (list or details).
+//   - focus:        Which panel is focused (list, details, or selected).
 //   - detailScroll: Scroll offset for the details panel.
-//
-// # Methods
-//
-//   - filter():         Updates visible entries based on search.
-//   - handleSearchInput(): Handles key input in search mode.
-//   - handleListInput():   Handles key input in list mode.
-//   - handleDetailsInput(): Handles key input in details mode.
-//   - detailLines():    Returns the lines to display in the details panel.
-//   - View():           Renders the full TUI.
+//   - selectedKeys: Keys of software selected for the right pane.
+//   - softwarePaneLeft: Track which pane is active in software focus: true=left, false=right
 type model struct {
 	manifest     app.Manifest
 	loadErr      error
 	entries      []string // sorted keys
-	visible      []string // filtered keys
-	selected     int
+	visible      []string // filtered keys (left pane, excludes selected)
+	selected     int      // index in visible (left) or selectedKeys (right)
 	search       string
 	searching    bool
 	focus        focusArea
 	detailScroll int
+
+	selectedKeys []string // keys of selected software (right pane)
+	// track which pane is active in software focus: true=left, false=right
+	softwarePaneLeft bool
 }
 
 func (m *model) filter() {
 	if m.search == "" {
-		m.visible = m.entries
-		return
-	}
-	var filtered []string
-	q := strings.ToLower(m.search)
-	for _, k := range m.entries {
-		e := m.manifest[k]
-		if strings.Contains(strings.ToLower(k), q) || strings.Contains(strings.ToLower(e.Name), q) || strings.Contains(strings.ToLower(e.Desc), q) {
-			filtered = append(filtered, k)
+		m.visible = make([]string, 0, len(m.entries))
+		for _, k := range m.entries {
+			if !m.isSelected(k) {
+				m.visible = append(m.visible, k)
+			}
 		}
+	} else {
+		var filtered []string
+		q := strings.ToLower(m.search)
+		for _, k := range m.entries {
+			if m.isSelected(k) {
+				continue
+			}
+			e := m.manifest[k]
+			if strings.Contains(strings.ToLower(k), q) || strings.Contains(strings.ToLower(e.Name), q) || strings.Contains(strings.ToLower(e.Desc), q) {
+				filtered = append(filtered, k)
+			}
+		}
+		m.visible = filtered
 	}
-	m.visible = filtered
 	if m.selected >= len(m.visible) {
 		m.selected = len(m.visible) - 1
 	}
 	if m.selected < 0 {
 		m.selected = 0
 	}
+}
+
+func (m *model) isSelected(key string) bool {
+	for _, k := range m.selectedKeys {
+		if k == key {
+			return true
+		}
+	}
+	return false
 }
 
 func (m *model) Init() tea.Cmd {
@@ -134,25 +148,6 @@ func (m *model) handleSearchInput(key string) *model {
 	if len(key) == 1 && key >= " " && key <= "~" {
 		m.search += key
 		m.filter()
-		return m
-	}
-	return m
-}
-
-func (m *model) handleListInput(key string) *model {
-	switch key {
-	case "/":
-		m.searching = true
-		return m
-	case "up", "k":
-		if m.selected > 0 {
-			m.selected--
-		}
-		return m
-	case "down", "j":
-		if m.selected < len(m.visible)-1 {
-			m.selected++
-		}
 		return m
 	}
 	return m
@@ -195,21 +190,87 @@ func (m *model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 			return m.handleSearchInput(key), nil
 		}
 		if key == "tab" {
-			if m.focus == focusList {
-				m.focus = focusDetails
-				m.detailScroll = 0
-			} else {
-				m.focus = focusList
-			}
-			return m, nil
+			return m.handleTab(), nil
 		}
-		if m.focus == focusList {
-			return m.handleListInput(key), nil
-		} else if m.focus == focusDetails {
+		if m.focus == focusSoftware {
+			return m.handleSoftwareKey(key), nil
+		}
+		if m.focus == focusDetails {
 			return m.handleDetailsInput(key), nil
 		}
 	}
 	return m, nil
+}
+
+// handleTab toggles focus between software and details
+func (m *model) handleTab() *model {
+	if m.focus == focusSoftware {
+		m.focus = focusDetails
+		m.detailScroll = 0
+	} else {
+		m.focus = focusSoftware
+		// keep softwarePaneLeft as is
+	}
+	return m
+}
+
+// handleSoftwareKey handles key input for the software panes
+func (m *model) handleSoftwareKey(key string) *model {
+	if key == "/" {
+		m.searching = true
+		return m
+	}
+	if m.softwarePaneLeft {
+		return m.handleLeftPaneKey(key)
+	} else {
+		return m.handleRightPaneKey(key)
+	}
+}
+
+// handleLeftPaneKey handles key input for the left (unselected) pane
+func (m *model) handleLeftPaneKey(key string) *model {
+	switch key {
+	case "enter":
+		m.moveToSelected()
+	case "down", "j":
+		if m.selected < len(m.visible)-1 {
+			m.selected++
+		}
+	case "up", "k":
+		if m.selected > 0 {
+			m.selected--
+		}
+	case "right":
+		// switch to right pane if any selected
+		if len(m.selectedKeys) > 0 {
+			m.softwarePaneLeft = false
+			m.selected = 0
+		}
+	}
+	return m
+}
+
+// handleRightPaneKey handles key input for the right (selected) pane
+func (m *model) handleRightPaneKey(key string) *model {
+	switch key {
+	case "enter":
+		m.moveToDeselected()
+	case "down", "j":
+		if m.selected < len(m.selectedKeys)-1 {
+			m.selected++
+		}
+	case "up", "k":
+		if m.selected > 0 {
+			m.selected--
+		}
+	case "left":
+		// switch to left pane if any visible
+		if len(m.visible) > 0 {
+			m.softwarePaneLeft = true
+			m.selected = 0
+		}
+	}
+	return m
 }
 
 // normalizeEmoji ensures the emoji is exactly 2 columns wide for consistent alignment.
@@ -304,40 +365,50 @@ func wrap(s string, width int) string {
 // # Returns
 //   - []string: Each string is a line to display in the details panel.
 func (m *model) detailLines() []string {
-	if len(m.visible) == 0 {
-		return []string{
-			styles.HeaderStyle.Render("Details"),
-			styles.ItemStyle.Render("No details available."),
+	if m.focus == focusSoftware && !m.softwarePaneLeft {
+		// Right pane (selected)
+		if len(m.selectedKeys) == 0 || m.selected < 0 || m.selected >= len(m.selectedKeys) {
+			return m.noDetails()
 		}
+		return m.detailsForKey(m.selectedKeys[m.selected])
+	} else {
+		// Left pane (unselected)
+		if len(m.visible) == 0 || m.selected < 0 || m.selected >= len(m.visible) {
+			return m.noDetails()
+		}
+		return m.detailsForKey(m.visible[m.selected])
 	}
-	selKey := m.visible[m.selected]
-	sel := m.manifest[selKey]
+}
+
+// detailsForKey returns the details lines for a given manifest key
+func (m *model) detailsForKey(key string) []string {
+	entry := m.manifest[key]
 	logical := []string{
 		styles.HeaderStyle.Render("Details"),
-		styles.DetailKey.Render("Name: ") + styles.DetailVal.Render(sel.Name),
-		styles.DetailKey.Render("Key: ") + styles.DetailVal.Render(selKey),
-		styles.DetailKey.Render("Desc: ") + styles.DetailVal.Render(sel.Desc),
+		styles.DetailKey.Render("Name: ") + styles.DetailVal.Render(entry.Name),
+		styles.DetailKey.Render("Key: ") + styles.DetailVal.Render(key),
+		styles.DetailKey.Render("Desc: ") + styles.DetailVal.Render(entry.Desc),
 	}
-	if len(sel.Bin) > 0 {
-		logical = append(logical, styles.DetailKey.Render("Bin: ")+styles.DetailVal.Render(strings.Join(sel.Bin, ", ")))
+	if len(entry.Bin) > 0 {
+		logical = append(logical, styles.DetailKey.Render("Bin: ")+styles.DetailVal.Render(strings.Join(entry.Bin, ", ")))
 	}
-	if len(sel.Brew) > 0 {
-		logical = append(logical, styles.DetailKey.Render("Brew: ")+styles.DetailVal.Render(strings.Join(sel.Brew, ", ")))
+	if len(entry.Brew) > 0 {
+		logical = append(logical, styles.DetailKey.Render("Brew: ")+styles.DetailVal.Render(strings.Join(entry.Brew, ", ")))
 	}
-	if len(sel.Apt) > 0 {
-		logical = append(logical, styles.DetailKey.Render("Apt: ")+styles.DetailVal.Render(strings.Join(sel.Apt, ", ")))
+	if len(entry.Apt) > 0 {
+		logical = append(logical, styles.DetailKey.Render("Apt: ")+styles.DetailVal.Render(strings.Join(entry.Apt, ", ")))
 	}
-	if len(sel.Pacman) > 0 {
-		logical = append(logical, styles.DetailKey.Render("Pacman: ")+styles.DetailVal.Render(strings.Join(sel.Pacman, ", ")))
+	if len(entry.Pacman) > 0 {
+		logical = append(logical, styles.DetailKey.Render("Pacman: ")+styles.DetailVal.Render(strings.Join(entry.Pacman, ", ")))
 	}
-	if sel.Docs != "" {
-		logical = append(logical, styles.DetailKey.Render("Docs: ")+styles.DetailVal.Render(sel.Docs))
+	if entry.Docs != "" {
+		logical = append(logical, styles.DetailKey.Render("Docs: ")+styles.DetailVal.Render(entry.Docs))
 	}
-	if sel.Github != "" {
-		logical = append(logical, styles.DetailKey.Render("GitHub: ")+styles.DetailVal.Render(sel.Github))
+	if entry.Github != "" {
+		logical = append(logical, styles.DetailKey.Render("GitHub: ")+styles.DetailVal.Render(entry.Github))
 	}
-	if sel.Home != "" {
-		logical = append(logical, styles.DetailKey.Render("Home: ")+styles.DetailVal.Render(sel.Home))
+	if entry.Home != "" {
+		logical = append(logical, styles.DetailKey.Render("Home: ")+styles.DetailVal.Render(entry.Home))
 	}
 	// Flatten to terminal lines
 	var lines []string
@@ -347,6 +418,14 @@ func (m *model) detailLines() []string {
 		lines = append(lines, strings.Split(wrapped, "\n")...)
 	}
 	return lines
+}
+
+// noDetails returns the placeholder lines for when no details are available
+func (m *model) noDetails() []string {
+	return []string{
+		styles.HeaderStyle.Render("Details"),
+		styles.ItemStyle.Render("No details available."),
+	}
 }
 
 // renderHeader renders the TUI header.
@@ -368,31 +447,11 @@ func (m *model) renderSearch() string {
 	return styles.FooterStyle.Render("Search: (press / to search)") + "\n"
 }
 
-// renderEmptyList renders a placeholder when no results are found.
-//
-// # Returns
-//   - string: The rendered empty list message.
-func (m *model) renderEmptyList() string {
-	var list strings.Builder
-	for i := 0; i < listHeight; i++ {
-		if i == listHeight/2 {
-			msg := styles.ItemStyle.Render("No results found. Press / to search, q to quit.")
-			pad := (panelWidth - 8 - len("No results found. Press / to search, q to quit.")) / 2
-			list.WriteString(strings.Repeat(" ", pad) + msg + "\n")
-		} else {
-			list.WriteString("\n")
-		}
-	}
-	return list.String()
-}
-
-// renderList renders the list of visible entries.
-//
-// # Returns
-//   - string: The rendered list.
+// renderList renders the list of visible entries (left pane)
 func (m *model) renderList() string {
 	var list strings.Builder
-	listHeight := listHeight // rename to avoid shadowing
+	listHeight := listHeight
+	paneWidth := (panelWidth - 4) / 2
 	start := m.selected - listHeight/2
 	if start < 0 {
 		start = 0
@@ -403,7 +462,16 @@ func (m *model) renderList() string {
 	}
 
 	if len(m.visible) == 0 {
-		return m.renderEmptyList()
+		for i := 0; i < listHeight; i++ {
+			line := ""
+			if i == listHeight/2 {
+				msg := styles.ItemStyle.Render("No results found. Press / to search, q to quit.")
+				pad := (paneWidth - 8 - len("No results found. Press / to search, q to quit.")) / 2
+				line = strings.Repeat(" ", pad) + msg
+			}
+			list.WriteString(lipgloss.NewStyle().Width(paneWidth).Render(line) + "\n")
+		}
+		return list.String()
 	}
 
 	linesRendered := 0
@@ -413,20 +481,20 @@ func (m *model) renderList() string {
 		emoji := emojiForEntry(&entry)
 		prefix := "  "
 		line := fmt.Sprintf("%s %-20s %s", emoji, k, entry.Name)
-		line = wrap(line, panelWidth-8)
+		line = wrap(line, paneWidth-8)
 		switch {
-		case i == m.selected && m.focus == focusList:
-			list.WriteString(styles.FocusStyle.Render(styles.SelectedItemStyle.Render(prefix+line)) + "\n")
+		case m.softwarePaneLeft && i == m.selected && m.focus == focusSoftware:
+			line = styles.FocusStyle.Render(styles.SelectedItemStyle.Render(prefix + line))
 		case i == m.selected:
-			list.WriteString(styles.SelectedItemStyle.Render(prefix+line) + "\n")
+			line = styles.SelectedItemStyle.Render(prefix + line)
 		default:
-			list.WriteString(styles.ItemStyle.Render(prefix+line) + "\n")
+			line = styles.ItemStyle.Render(prefix + line)
 		}
+		list.WriteString(lipgloss.NewStyle().Width(paneWidth).Render(line) + "\n")
 		linesRendered++
 	}
-	// Always pad with newlines to reach listHeight
 	for ; linesRendered < listHeight; linesRendered++ {
-		list.WriteString("\n")
+		list.WriteString(lipgloss.NewStyle().Width(paneWidth).Render("") + "\n")
 	}
 	return list.String()
 }
@@ -527,7 +595,59 @@ func (m *model) renderDetails() string {
 	return m.renderDetailLines(detailLines, scroll, maxScroll, m.focus == focusDetails)
 }
 
-// View renders the entire TUI, including header, search, list, details, and footer.
+// renderSelectedList renders the list of selected software in the right pane.
+func (m *model) renderSelectedList() string {
+	var list strings.Builder
+	listHeight := listHeight
+	paneWidth := (panelWidth - 4) - ((panelWidth - 4) / 2)
+	start := m.selected - listHeight/2
+	if start < 0 {
+		start = 0
+	}
+	end := start + listHeight
+	if end > len(m.selectedKeys) {
+		end = len(m.selectedKeys)
+	}
+
+	if len(m.selectedKeys) == 0 {
+		for i := 0; i < listHeight; i++ {
+			line := ""
+			if i == listHeight/2 {
+				msg := styles.ItemStyle.Render("No software selected. Use ←/Enter to remove.")
+				pad := (paneWidth - 8 - len("No software selected. Use ←/Enter to remove.")) / 2
+				line = strings.Repeat(" ", pad) + msg
+			}
+			list.WriteString(lipgloss.NewStyle().Width(paneWidth).Render(line) + "\n")
+		}
+		return list.String()
+	}
+
+	linesRendered := 0
+	for i := start; i < end; i++ {
+		k := m.selectedKeys[i]
+		entry := m.manifest[k]
+		emoji := emojiForEntry(&entry)
+		prefix := "  "
+		line := fmt.Sprintf("%s %-20s %s", emoji, k, entry.Name)
+		line = wrap(line, paneWidth-8)
+		switch {
+		case !m.softwarePaneLeft && i == m.selected && m.focus == focusSoftware:
+			line = styles.FocusStyle.Render(styles.SelectedItemStyle.Render(prefix + line))
+		case i == m.selected:
+			line = styles.SelectedItemStyle.Render(prefix + line)
+		default:
+			line = styles.ItemStyle.Render(prefix + line)
+		}
+		list.WriteString(lipgloss.NewStyle().Width(paneWidth).Render(line) + "\n")
+		linesRendered++
+	}
+	for ; linesRendered < listHeight; linesRendered++ {
+		list.WriteString(lipgloss.NewStyle().Width(paneWidth).Render("") + "\n")
+	}
+	return list.String()
+}
+
+// View renders the entire TUI, including header, search, both panes, and footer.
 //
 // # Returns
 //   - string: The full rendered TUI.
@@ -536,27 +656,80 @@ func (m *model) View() string {
 		return styles.BorderStyle.Render(styles.HeaderStyle.Render(fmt.Sprintf("Error loading manifest: %v\nPress q or Ctrl+C to quit.", m.loadErr)))
 	}
 
-	// Render header and search bar outside the list container
 	header := m.renderHeader()
 	search := m.renderSearch()
 	listContent := m.renderList()
+	selectedContent := m.renderSelectedList()
+
+	// Panel styles for focus (no border)
+	listPanelStyle := styles.ListPanel
+	selectedPanelStyle := styles.ListPanel
+	paneHeight := listHeight
+	if m.focus == focusSoftware {
+		if m.softwarePaneLeft {
+			listPanelStyle = styles.ListPanel.Background(DefaultTheme.FocusBg).Foreground(lipgloss.Color("51")).Bold(true)
+		} else {
+			selectedPanelStyle = styles.ListPanel.Background(DefaultTheme.FocusBg).Foreground(lipgloss.Color("51")).Bold(true)
+		}
+	}
+
+	// Render left and right panes
+	leftPane := listPanelStyle.Width((panelWidth - 4) / 2).Render(listContent)
+	rightPane := selectedPanelStyle.Width((panelWidth - 4) - (panelWidth-4)/2).Render(selectedContent)
+	if m.focus == focusSoftware && m.softwarePaneLeft {
+		leftPane = lipgloss.NewStyle().Background(DefaultTheme.FocusBg).Height(paneHeight).Render(leftPane)
+	} else {
+		leftPane = lipgloss.NewStyle().Height(paneHeight).Render(leftPane)
+	}
+	if m.focus == focusSoftware && !m.softwarePaneLeft {
+		rightPane = lipgloss.NewStyle().Background(DefaultTheme.FocusBg).Height(paneHeight).Render(rightPane)
+	} else {
+		rightPane = lipgloss.NewStyle().Height(paneHeight).Render(rightPane)
+	}
+
+	// Build a true vertical separator that fills the pane height
+	separatorStyle := lipgloss.NewStyle().
+		Foreground(DefaultTheme.Border).
+		Width(1)
+	separatorChar := "│"
+
+	leftLines := strings.Split(leftPane, "\n")
+	rightLines := strings.Split(rightPane, "\n")
+	maxLines := paneHeight
+	if len(leftLines) > maxLines {
+		maxLines = len(leftLines)
+	}
+	if len(rightLines) > maxLines {
+		maxLines = len(rightLines)
+	}
+	// Pad lines to maxLines
+	for len(leftLines) < maxLines {
+		leftLines = append(leftLines, strings.Repeat(" ", (panelWidth-4)/2))
+	}
+	for len(rightLines) < maxLines {
+		rightLines = append(rightLines, strings.Repeat(" ", (panelWidth-4)-(panelWidth-4)/2))
+	}
+	// Build the main panes row by row
+	mainPaneRows := make([]string, maxLines)
+	for i := 0; i < maxLines; i++ {
+		mainPaneRows[i] = leftLines[i] + separatorStyle.Render(separatorChar) + rightLines[i]
+	}
+	mainPanes := strings.Join(mainPaneRows, "\n")
 
 	detailPanelStyle := styles.DetailPanel
 	if m.focus == focusDetails {
 		detailPanelStyle = styles.DetailPanel.BorderForeground(lipgloss.Color("51")).Bold(true)
 	}
 
-	listPanelStyle := styles.ListPanel
-	if m.focus == focusList {
-		listPanelStyle = styles.ListPanel.BorderForeground(lipgloss.Color("51")).Bold(true)
-	}
+	footer := styles.FooterStyle.Render(
+		"↑/↓/j/k: Move  Enter: Select/Deselect  →/←: Switch pane  TAB: Toggle details  /: Search  q: Quit  esc: Cancel search",
+	)
 
-	footer := styles.FooterStyle.Render("↑/↓/j/k: Move  /: Search  q: Quit  Enter: Details  esc: Cancel search  TAB: Toggle focus")
-
+	// Compose the full UI with an outer border
 	mainPanel := lipgloss.JoinVertical(lipgloss.Left,
 		header,
 		search,
-		listPanelStyle.Render(listContent),
+		mainPanes,
 		detailPanelStyle.Render(m.renderDetails()),
 		footer,
 	)
@@ -588,9 +761,12 @@ func main() {
 		os.Exit(1)
 	}
 	m := &model{
-		manifest: manifest,
-		entries:  make([]string, 0, len(manifest)),
-		visible:  make([]string, 0, len(manifest)),
+		manifest:         manifest,
+		entries:          make([]string, 0, len(manifest)),
+		visible:          make([]string, 0, len(manifest)),
+		selectedKeys:     make([]string, 0, len(manifest)),
+		focus:            focusSoftware,
+		softwarePaneLeft: true,
 	}
 	for k := range manifest {
 		m.entries = append(m.entries, k)
@@ -601,5 +777,53 @@ func main() {
 	if _, err := p.Run(); err != nil {
 		fmt.Printf("Error running program: %v\n", err)
 		os.Exit(1)
+	}
+}
+
+// moveToSelected moves the currently highlighted entry from visible to selectedKeys
+func (m *model) moveToSelected() {
+	if m.softwarePaneLeft && len(m.visible) > 0 {
+		key := m.visible[m.selected]
+		if !m.isSelected(key) {
+			m.selectedKeys = append(m.selectedKeys, key)
+			m.filter()
+			if m.selected >= len(m.visible) {
+				m.selected = len(m.visible) - 1
+			}
+			if m.selected < 0 {
+				m.selected = 0
+			}
+			// If right pane is not focused, reset its index to 0 so it always shows the top
+			if !m.softwarePaneLeft && len(m.selectedKeys) > 0 {
+				m.selected = 0
+			}
+		}
+	}
+}
+
+// moveToDeselected moves the currently highlighted entry from selectedKeys back to visible
+func (m *model) moveToDeselected() {
+	if !m.softwarePaneLeft && len(m.selectedKeys) > 0 {
+		idx := m.selected
+		if idx >= 0 && idx < len(m.selectedKeys) {
+			key := m.selectedKeys[idx]
+			m.selectedKeys = append(m.selectedKeys[:idx], m.selectedKeys[idx+1:]...)
+			m.filter()
+			if m.selected >= len(m.selectedKeys) {
+				m.selected = len(m.selectedKeys) - 1
+			}
+			if m.selected < 0 {
+				m.selected = 0
+			}
+			// Highlight the newly restored item in the left pane
+			if len(m.visible) > 0 {
+				for i, v := range m.visible {
+					if v == key {
+						m.selected = i
+						break
+					}
+				}
+			}
+		}
 	}
 }
