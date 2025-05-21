@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.3.0 (2025-05-21)
+
+## What's Changed
+* feat(tui): allow user to select software by @iamchadarmstrong in https://github.com/iamchadarmstrong/chezmoi-a-la-carte/pull/40
+
+
+**Full Changelog**: https://github.com/iamchadarmstrong/chezmoi-a-la-carte/compare/v0.2.5...v0.3.0
+
 ## 0.2.5 (2025-05-20)
 
 ## What's Changed
