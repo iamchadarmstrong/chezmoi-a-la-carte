@@ -2,7 +2,7 @@
   "folders": [
     {
       "path": ".",
-      "name": "🇦➖🇱🇦➖🛒"
+      "name": "à-la-🛒"
     }
   ],
   "settings": {
@@ -75,12 +75,6 @@
     "go.useLanguageServer": true,
     "go.toolsManagement.checkForUpdates": "local",
     "go.toolsManagement.autoUpdate": true,
-    "go.lintToolSettings": {
-      "golangci-lint": {
-        "run": "on save",
-        "args": ["--fast"]
-      }
-    },
     "editor.codeActionsOnSave": {
       "source.organizeImports": "explicit"
     },

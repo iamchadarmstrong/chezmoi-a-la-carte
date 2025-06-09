@@ -54,6 +54,10 @@ func (s *StringOrSlice) UnmarshalYAML(value *yaml.Node) error {
 // # Fields
 //   - Bin, Desc, Docs, Github, Home, Name, Short, Groups: metadata fields
 //   - Brew, Apt, Pacman, etc.: installation methods for various package managers
+//   - Deps: list of dependency keys
+//   - App: GUI app identifier (if present)
+//   - Script: Script(s) to run as part of provisioning
+//   - Lazy: If true, only install with --lazy flag
 //
 // # Example
 //
@@ -93,6 +97,10 @@ type SoftwareEntry struct {
 	Zypper        StringOrSlice `yaml:"zypper"`
 	Cargo         StringOrSlice `yaml:"cargo"`
 	Pipx          StringOrSlice `yaml:"pipx"`
+	Deps          StringOrSlice `yaml:"deps"`
+	App           string        `yaml:"_app"`   // GUI app identifier (if present)
+	Script        StringOrSlice `yaml:"script"` // Script(s) to run as part of provisioning
+	Lazy          bool          `yaml:"lazy"`   // If true, only install with --lazy flag
 	// Add more fields as needed
 }
 
