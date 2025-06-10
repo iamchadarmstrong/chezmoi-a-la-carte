@@ -7,7 +7,7 @@ import (
 )
 
 // setupTestConfig creates a temporary config file for testing
-func setupTestConfig(t *testing.T) (string, func()) {
+func setupTestConfig(t *testing.T) (configPath string, cleanup func()) {
 	t.Helper()
 
 	// Create a temporary directory
@@ -17,7 +17,7 @@ func setupTestConfig(t *testing.T) (string, func()) {
 	}
 
 	// Create a temporary config file
-	configPath := filepath.Join(tempDir, "a-la-carte.yml")
+	configPath = filepath.Join(tempDir, "a-la-carte.yml")
 	configContent := `
 ui:
   theme: dark
@@ -34,14 +34,16 @@ system:
   debugMode: true
 `
 
-	err = os.WriteFile(configPath, []byte(configContent), 0644)
+	err = os.WriteFile(configPath, []byte(configContent), 0o644)
 	if err != nil {
 		t.Fatalf("failed to write test config: %v", err)
 	}
 
 	// Create a cleanup function
-	cleanup := func() {
-		os.RemoveAll(tempDir)
+	cleanup = func() {
+		if err := os.RemoveAll(tempDir); err != nil {
+			t.Errorf("failed to remove temp dir: %v", err)
+		}
 	}
 
 	return configPath, cleanup
@@ -127,13 +129,19 @@ func TestLoadError(t *testing.T) {
 	if err != nil {
 		t.Fatalf("failed to create temp file: %v", err)
 	}
-	defer os.Remove(tempFile.Name())
+	defer func() {
+		if err = os.Remove(tempFile.Name()); err != nil {
+			t.Errorf("failed to remove temp file: %v", err)
+		}
+	}()
 
 	_, err = tempFile.WriteString("invalid: yaml: :")
 	if err != nil {
 		t.Fatalf("failed to write to temp file: %v", err)
 	}
-	tempFile.Close()
+	if err = tempFile.Close(); err != nil {
+		t.Errorf("failed to close temp file: %v", err)
+	}
 
 	_, err = Load(tempFile.Name())
 	if err == nil {
@@ -182,7 +190,11 @@ func TestSave(t *testing.T) {
 	if err != nil {
 		t.Fatalf("failed to create temp dir: %v", err)
 	}
-	defer os.RemoveAll(tempDir)
+	defer func() {
+		if err = os.RemoveAll(tempDir); err != nil {
+			t.Errorf("failed to remove temp dir: %v", err)
+		}
+	}()
 
 	savePath := filepath.Join(tempDir, "saved-config.yml")
 

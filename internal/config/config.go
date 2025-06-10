@@ -125,7 +125,12 @@ func Load(configPath string) (*Config, error) {
 	if err != nil {
 		return nil, fmt.Errorf("error opening config file: %w", err)
 	}
-	defer f.Close()
+	defer func() {
+		if closeErr := f.Close(); closeErr != nil {
+			// If we already have an error, don't overwrite it
+			fmt.Fprintf(os.Stderr, "error closing config file: %v\n", closeErr)
+		}
+	}()
 
 	c := DefaultConfig()
 	decoder := yaml.NewDecoder(f)
@@ -171,7 +176,7 @@ func FindConfigFile() string {
 func (c *Config) Save(path string) error {
 	// Ensure directory exists
 	dir := filepath.Dir(path)
-	if err := os.MkdirAll(dir, 0755); err != nil {
+	if err := os.MkdirAll(dir, 0o755); err != nil {
 		return fmt.Errorf("error creating config directory: %w", err)
 	}
 
@@ -180,7 +185,12 @@ func (c *Config) Save(path string) error {
 	if err != nil {
 		return fmt.Errorf("error creating config file: %w", err)
 	}
-	defer f.Close()
+	defer func() {
+		if closeErr := f.Close(); closeErr != nil {
+			// If we already have an error, don't overwrite it
+			fmt.Fprintf(os.Stderr, "error closing config file: %v\n", closeErr)
+		}
+	}()
 
 	encoder := yaml.NewEncoder(f)
 	encoder.SetIndent(2)

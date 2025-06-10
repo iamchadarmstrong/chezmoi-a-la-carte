@@ -33,7 +33,12 @@ func (c *Config) ValidateManifestPath() error {
 	if err != nil {
 		return fmt.Errorf("error opening manifest file: %w", err)
 	}
-	f.Close()
+	defer func() {
+		if closeErr := f.Close(); closeErr != nil {
+			// If we already have an error, don't overwrite it
+			fmt.Fprintf(os.Stderr, "error closing config file: %v\n", closeErr)
+		}
+	}()
 
 	return nil
 }
