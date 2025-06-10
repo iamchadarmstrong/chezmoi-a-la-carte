@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.4.0 (2025-06-10)
+
+## What's Changed
+* feat(config): introduce app config system by @iamchadarmstrong in https://github.com/iamchadarmstrong/chezmoi-a-la-carte/pull/42
+
+
+**Full Changelog**: https://github.com/iamchadarmstrong/chezmoi-a-la-carte/compare/v0.3.0...v0.4.0
+
 ## 0.3.0 (2025-05-21)
 
 ## What's Changed
