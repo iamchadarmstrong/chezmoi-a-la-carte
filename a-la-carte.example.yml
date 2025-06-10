@@ -1,0 +1,33 @@
+# a-la-carte.yml - Default Configuration File
+# This file can be placed in:
+# - $HOME/.config/a-la-carte/a-la-carte.yml
+# - Or specified with --config flag
+# - Or specified with A_LA_CARTE_CONFIG environment variable
+
+# UI Configuration
+ui:
+  # Theme can be light, dark, or system
+  theme: dark
+
+  # UI dimensions
+  detailHeight: 10
+  listHeight: 10
+
+  # Whether to show emojis in the UI
+  emojisEnabled: true
+
+# Software configuration
+software:
+  # Path to the software manifest
+  manifestPath: software.yml
+
+  # List of software keys to preload
+  preloadKeys:
+    - git
+    - vim
+    - go
+
+# System settings
+system:
+  # Enable debug mode (can also be enabled with --debug flag)
+  debugMode: false

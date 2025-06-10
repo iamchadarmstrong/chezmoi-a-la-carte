@@ -19,6 +19,35 @@ Software provisioning and configuration for host and container environments.
 - **CI/CD:** GitHub Actions, release-please
 - **Commit Style:** [Conventional Commits v1](https://www.conventionalcommits.org/en/v1.0.0/)
 
+## UI Architecture
+
+The TUI (Terminal User Interface) is built using the Bubble Tea framework and is organized into three main packages within `internal/ui/`:
+
+- **`core`**: This package provides the foundational elements for the UI. It includes:
+
+  - **Theme Management**: Defines the `Theme` interface and `DefaultTheme` implementation, along with functions for managing themes (`CurrentTheme`, `RegisterTheme`, `SetTheme`).
+  - **Styling**: Contains the `Styles` struct holding various `lipgloss.Style` definitions, functions to build and access current styles (`BuildStyles`, `CurrentStyles`), and layout constants (`PanelWidth`, `ListHeight`, etc.).
+  - **Color Helpers**: Utility functions for color manipulation, like `colorToAdaptive`.
+  - **Basic UI Models**: Simple, reusable Bubble Tea models like `StringModel` and `EmptyModel`.
+  - **Emoji Handling**: Logic for selecting and normalizing emojis for display (`EmojiForEntry`, `NormalizeEmoji`).
+
+- **`components`**: This package contains individual, self-contained UI components that are used to build the TUI. Examples include:
+
+  - `DetailsPanelModel`: Renders the detailed view of a selected software item.
+  - `HelpDialogModel`: Displays the help dialog.
+  - `ListPaneModel`: Manages and displays lists of software items.
+  - `SearchBarModel`: Provides search functionality.
+    These components directly use elements from the `core` package for styling and theming.
+
+- **`patterns`**: This package offers more complex UI patterns and layouts composed of core elements and components. Examples include:
+  - `Dialog`: A function to create a standardized dialog box.
+  - `Card`: A function to create a card-like container.
+  - `SplitPaneLayout`: An interface and implementation for creating split-pane views (e.g., list/details).
+  - `PlaceOverlay`: A utility to position an overlay (like a dialog) on top of existing content.
+  - Container helpers like `NewEnhancedContainer`, `GetListPanelStyle`, and `GetDetailPanelStyle`.
+
+This structure promotes a clear separation of concerns, making it easier to manage and extend the UI. Application code (like in `cmd/chezmoi-a-la-carte/main.go`) primarily interacts with these three packages to construct and manage the user interface.
+
 ## Features
 
 - Interactive TUI for browsing and selecting software
@@ -29,8 +58,23 @@ Software provisioning and configuration for host and container environments.
 ## Usage
 
 ```sh
-chezmoi-a-la-carte
+chezmoi-a-la-carte [options]
 ```
+
+### Options
+
+| Argument          | Short | Description                                        |
+| ----------------- | ----- | -------------------------------------------------- |
+| `--config FILE`   | `-c`  | Path to configuration file                         |
+| `--manifest FILE` | `-m`  | Path to software manifest file                     |
+| `--debug`         | `-d`  | Enable debug mode                                  |
+| `--version`       | `-v`  | Show version and exit                              |
+| `--help`          | `-h`  | Show help message                                  |
+| `--output FORMAT` | `-o`  | Output format (text, json) for non-interactive use |
+| `--quiet`         | `-q`  | Suppress non-essential output                      |
+| `--no-emojis`     | `-E`  | Disable emojis in the UI                           |
+
+For detailed information about the configuration system, see [Configuration System](docs/configuration-system.md).
 
 ## Development
 
