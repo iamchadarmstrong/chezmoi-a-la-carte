@@ -1,22 +1,43 @@
 version: '3'
-
 tasks:
+  # Build tasks for individual modules
+  build-picker:
+    desc: Build the chezmoi-a-la-carte picker binary
+    cmds:
+      - go build -v ./cmd/chezmoi-a-la-carte
+
+  build-provisioner:
+    desc: Build the provisioner binary
+    cmds:
+      - go build -v ./cmd/provisioner
+
+  # Run tasks for individual modules
+  run-picker:
+    desc: Run the chezmoi-a-la-carte picker binary
+    cmds:
+      - go run ./cmd/chezmoi-a-la-carte
+
+  run-provisioner:
+    desc: Run the provisioner binary
+    cmds:
+      - go run ./cmd/provisioner
+
+  # Default build/run tasks that run both modules
+  build:
+    desc: Build all binaries
+    deps: [build-picker, build-provisioner]
+
+  run:
+    desc: Run all binaries
+    deps: [run-picker, run-provisioner]
+
   lint:
     desc: Run golangci-lint with correct PATH
     cmds:
       - |
         export PATH="$HOME/go/bin:$PATH"
         golangci-lint run
-
-  build:
-    desc: Build the chezmoi-a-la-carte binary
-    cmds:
-      - go build -v ./cmd/chezmoi-a-la-carte
-
-  run:
-    desc: Run the chezmoi-a-la-carte binary
-    cmds:
-      - go run ./cmd/chezmoi-a-la-carte
+        go vet -vettool=$(which shadow) ./...
 
   test:
     desc: Run all Go tests
@@ -32,3 +53,11 @@ tasks:
     desc: Tidy Go module dependencies
     cmds:
       - go mod tidy
+
+  goimports:
+    desc: Install goimports and run it on all Go files
+    cmds:
+      - go install golang.org/x/tools/cmd/goimports@latest
+      - |
+        export PATH="$HOME/go/bin:$PATH"
+        goimports -v -w $(find . -name "*.go")
