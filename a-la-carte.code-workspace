@@ -34,7 +34,7 @@
     "explorer.sortOrder": "type",
     "github.copilot.chat.commitMessageGeneration.instructions": [
       {
-        "file": ".github/commit-message-improved.md"
+        "file": ".github/commit-message.md"
       }
     ],
     "files.associations": {
