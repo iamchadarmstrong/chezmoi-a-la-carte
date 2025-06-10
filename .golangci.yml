@@ -80,7 +80,6 @@ linters-settings:
       - G101 # Look for hardcoded credentials
       - G104 # Handle errors
   govet:
-    check-shadowing: true
   importas:
     no-unaliased: true
     no-extra-aliases: true

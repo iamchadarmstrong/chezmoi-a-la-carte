@@ -2,7 +2,7 @@
   "folders": [
     {
       "path": ".",
-      "name": "🇦➖🇱🇦➖🛒"
+      "name": "à-la-🛒"
     }
   ],
   "settings": {
@@ -32,13 +32,18 @@
     "explorer.confirmDragAndDrop": false,
     "explorer.fileNesting.enabled": false,
     "explorer.sortOrder": "type",
-    "prettier.endOfLine": "auto",
-    "prettier.singleQuote": true,
-    "redhat.telemetry.enabled": false,
+    "github.copilot.chat.commitMessageGeneration.instructions": [
+      {
+        "file": ".github/commit-message-improved.md"
+      }
+    ],
     "files.associations": {
       "*.d2": "d2",
       "*.tmpl": "go-template"
     },
+    "prettier.endOfLine": "auto",
+    "prettier.singleQuote": true,
+    "redhat.telemetry.enabled": false,
     "search.exclude": {
       "**/.git/objects/**": true,
       "**/.git/subtree-cache/**": true,
@@ -75,12 +80,6 @@
     "go.useLanguageServer": true,
     "go.toolsManagement.checkForUpdates": "local",
     "go.toolsManagement.autoUpdate": true,
-    "go.lintToolSettings": {
-      "golangci-lint": {
-        "run": "on save",
-        "args": ["--fast"]
-      }
-    },
     "editor.codeActionsOnSave": {
       "source.organizeImports": "explicit"
     },
