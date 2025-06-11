@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.4.1 (2025-06-11)
+
+## What's Changed
+* refactor(tui): introduce new component UI arch by @iamchadarmstrong in https://github.com/iamchadarmstrong/chezmoi-a-la-carte/pull/44
+
+
+**Full Changelog**: https://github.com/iamchadarmstrong/chezmoi-a-la-carte/compare/v0.4.0...v0.4.1
+
 ## 0.4.0 (2025-06-10)
 
 ## What's Changed
