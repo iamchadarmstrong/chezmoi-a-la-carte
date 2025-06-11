@@ -58,7 +58,7 @@ You are a specialized git commit message generator. Based on the git diff provid
 3. Use imperative present tense ("add" not "added")
 4. No capitalization in description
 5. No period at end of description
-6. Maximum 50 characters for header line
+6. Maximum 50 characters for header line (STRICTLY ENFORCED)
 7. Maximum 72 characters for body/footer lines
 8. Include relevant scope when possible
 9. For breaking changes:
@@ -78,6 +78,7 @@ You are a specialized git commit message generator. Based on the git diff provid
 5. Add explanatory body paragraph(s) if needed
 6. Include relevant footers (issue references, breaking changes)
 7. Verify the message follows release-please requirements
+8. Verify the header is under 50 characters
 
 ## EXAMPLES
 
@@ -118,4 +119,20 @@ This release includes several new features and bug fixes as documented in
 the changelog.
 
 Closes #789
+```
+
+Example 4 (Long Commit Message Fixed):
+
+```
+# Original (too long):
+fix(config): improve error handling for file closure in Load, Save, and ValidateManifestPath functions
+
+# Fixed (under 50 chars):
+fix(config): add proper file closure handling
+
+Implement robust error handling for file closure in Load, Save, and
+ValidateManifestPath functions to prevent resource leaks and ensure
+proper cleanup.
+
+Fixes #123
 ```
